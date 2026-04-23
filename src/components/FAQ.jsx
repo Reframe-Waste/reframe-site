@@ -63,8 +63,8 @@ export default function FAQ() {
     >
       <div style={{ maxWidth: 'var(--max-width)', margin: '0 auto' }}>
 
-        <div style={{ padding: '96px var(--page-padding) 0' }}>
-          <span className="eyebrow eyebrow--caption" style={{ marginBottom: 20 }}>
+        <div style={{ padding: 'var(--section-pad-y) var(--page-padding) 0' }}>
+          <span className="eyebrow eyebrow--caption" style={{ marginBottom: 'var(--space-3)' }}>
             FAQ
           </span>
           <h2
@@ -73,7 +73,7 @@ export default function FAQ() {
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(32px, 3.2vw, 48px)',
               fontWeight: 400,
-              color: '#1a1a1a',
+              color: 'var(--ink)',
               maxWidth: 560,
             }}
           >
@@ -87,7 +87,7 @@ export default function FAQ() {
 
         <div
           className="faq-list"
-          style={{ padding: '40px var(--page-padding) 96px' }}
+          style={{ padding: 'var(--space-5) var(--page-padding) var(--space-12)' }}
         >
           {QUESTIONS.map((item, i) => (
             <FAQItem key={i} q={item.q} a={item.a} isLast={i === QUESTIONS.length - 1} />
@@ -129,7 +129,7 @@ function FAQItem({ q, a, isLast }) {
   return (
     <div
       className="faq-item"
-      style={{ borderBottom: isLast ? 'none' : '1px solid #e2e8f0' }}
+      style={{ borderBottom: isLast ? 'none' : '1px solid var(--hairline)' }}
     >
       <button
         onClick={toggle}
@@ -138,15 +138,15 @@ function FAQItem({ q, a, isLast }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          gap: 24,
-          padding: '24px 0',
+          gap: 'var(--space-3)',
+          padding: 'var(--space-3) 0',
           background: 'none',
           border: 'none',
           cursor: 'pointer',
           textAlign: 'left',
         }}
-        onMouseEnter={e => e.currentTarget.style.color = '#553d97'}
-        onMouseLeave={e => e.currentTarget.style.color = '#1a1a1a'}
+        onMouseEnter={e => e.currentTarget.style.color = 'var(--purple)'}
+        onMouseLeave={e => e.currentTarget.style.color = 'var(--ink)'}
       >
         <span style={{
           fontFamily: 'var(--font-ui)',
@@ -162,7 +162,7 @@ function FAQItem({ q, a, isLast }) {
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 20,
-            color: '#553d97',
+            color: 'var(--purple)',
             flexShrink: 0,
             display: 'block',
             transformOrigin: 'center',
@@ -179,8 +179,8 @@ function FAQItem({ q, a, isLast }) {
         <p style={{
           fontFamily: 'var(--font-body)',
           fontSize: 16,
-          color: '#757575',
-          paddingBottom: 28,
+          color: 'var(--caption)',
+          paddingBottom: 'var(--space-4)',
           maxWidth: 720,
         }}>
           {a}

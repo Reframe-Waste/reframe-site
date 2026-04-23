@@ -33,22 +33,22 @@ export default function Hero({ onNav }) {
     <section
       id="hero"
       ref={containerRef}
+      className="section-border"
       style={{
-        paddingTop: 120,
-        paddingBottom: 72,
+        paddingTop: 'var(--space-15)',
+        paddingBottom: 'var(--space-9)',
         paddingLeft: 'var(--page-padding)',
         paddingRight: 'var(--page-padding)',
         textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        borderBottom: '2px solid #000',
       }}
     >
       <span
         ref={eyebrowRef}
         className="eyebrow eyebrow--purple"
-        style={{ marginBottom: 24, letterSpacing: '1.4px' }}
+        style={{ marginBottom: 'var(--space-3)', letterSpacing: '1.4px' }}
       >
         Waste Intelligence Platform
       </span>
@@ -59,9 +59,9 @@ export default function Hero({ onNav }) {
           fontFamily: 'var(--font-display)',
           fontSize: 'clamp(44px, 6vw, 76px)',
           fontWeight: 400,
-          color: '#1a1a1a',
+          color: 'var(--ink)',
           maxWidth: 900,
-          marginBottom: 28,
+          marginBottom: 'var(--space-4)',
         }}
       >
         See what's in every bin on every route. Automatically.
@@ -72,9 +72,9 @@ export default function Hero({ onNav }) {
         style={{
           fontFamily: 'var(--font-body)',
           fontSize: 20,
-          color: '#1a1a1a',
+          color: 'var(--ink)',
           maxWidth: 600,
-          marginBottom: 40,
+          marginBottom: 'var(--space-5)',
         }}
       >
         Reframe mounts AI cameras on your collection trucks, identifies contamination, maps every route, and shows you which addresses need attention. No driver input. No manual audits.
@@ -82,7 +82,7 @@ export default function Hero({ onNav }) {
 
       <div
         ref={ctasRef}
-        style={{ display: 'flex', gap: 16, alignItems: 'center', justifyContent: 'center' }}
+        style={{ display: 'flex', gap: 'var(--space-2)', alignItems: 'center', justifyContent: 'center' }}
       >
         <button onClick={() => onNav('demo')} className="btn btn--dark">
           Get a Demo
@@ -92,11 +92,11 @@ export default function Hero({ onNav }) {
       <div
         ref={visualRef}
         style={{
-          marginTop: 64,
+          marginTop: 'var(--space-8)',
           width: '100%',
           maxWidth: 920,
           aspectRatio: '16/7',
-          border: '1px solid #d0d7de',
+          border: '1px solid var(--hairline)',
           overflow: 'hidden',
           position: 'relative',
         }}
@@ -112,11 +112,11 @@ export default function Hero({ onNav }) {
             display: 'block',
           }}
           onError={(e) => {
-            e.currentTarget.parentElement.style.background = '#e2e8f0';
+            e.currentTarget.parentElement.style.background = 'var(--hairline)';
             e.currentTarget.style.display = 'none';
             const label = document.createElement('div');
             label.style.cssText = 'position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px';
-            label.innerHTML = `<span style="font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#999">Dashboard Screenshot</span><span style="font-family:'Lora',serif;font-size:13px;color:#bbb;font-style:italic">Live contamination map, address-level view</span>`;
+            label.innerHTML = `<span style="font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--gray-400)">Dashboard Screenshot</span><span style="font-family:'Lora',serif;font-size:13px;color:var(--gray-200);font-style:italic">Live contamination map, address-level view</span>`;
             e.currentTarget.parentElement.appendChild(label);
           }}
         />
@@ -125,18 +125,18 @@ export default function Hero({ onNav }) {
           bottom: 0,
           left: 0,
           right: 0,
-          borderTop: '1px solid #d0d7de',
+          borderTop: '1px solid var(--hairline)',
           background: 'rgba(255,255,255,0.9)',
-          padding: '8px 16px',
+          padding: 'var(--space-1) var(--space-2)',
           display: 'flex',
           alignItems: 'center',
-          gap: 8,
+          gap: 'var(--space-1)',
         }}>
           <span style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 10,
             textTransform: 'uppercase',
-            color: '#757575',
+            color: 'var(--caption)',
           }}>
             Queen Creek, AZ · Live Dashboard · 15,000 Residential Customers
           </span>

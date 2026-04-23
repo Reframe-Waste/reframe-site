@@ -288,14 +288,14 @@ function ProductUnitGraphic() {
         <text x="140" y="214" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="7" fill="#888" letterSpacing="1">TRUCK MOUNT</text>
       </svg>
 
-      <div style={{ marginTop: 24 }}>
+      <div style={{ marginTop: 'var(--space-3)' }}>
         <span style={{
           fontFamily: 'var(--font-mono)',
           fontSize: 9,
           textTransform: 'uppercase',
-          color: '#555',
+          color: 'var(--gray-600)',
           display: 'block',
-          marginBottom: 6,
+          marginBottom: 'var(--space-1)',
         }}>
           Reframe Unit v2
         </span>
@@ -303,7 +303,7 @@ function ProductUnitGraphic() {
           fontFamily: 'var(--font-body)',
           fontStyle: 'italic',
           fontSize: 12,
-          color: '#444',
+          color: 'var(--gray-700)',
         }}>
           Truck-mounted AI camera system
         </span>

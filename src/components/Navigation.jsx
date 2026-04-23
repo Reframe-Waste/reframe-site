@@ -49,9 +49,9 @@ export default function Navigation({ onNav, activeSection }) {
         left: 0,
         right: 0,
         zIndex: 100,
-        background: scrolled ? 'rgba(255,255,255,0.97)' : '#fff',
+        background: scrolled ? 'var(--nav-bg-scrolled)' : 'var(--white)',
         backdropFilter: scrolled ? 'blur(4px)' : 'none',
-        borderBottom: '2px solid #000',
+        borderBottom: '2px solid var(--black)',
         transition: 'background 200ms, backdrop-filter 200ms',
       }}
     >
@@ -60,10 +60,10 @@ export default function Navigation({ onNav, activeSection }) {
           style={{
             display: 'grid',
             alignItems: 'center',
-            padding: '12px var(--page-padding)',
+            padding: 'var(--space-1-5) var(--page-padding)',
             maxWidth: 'var(--max-width)',
             margin: '0 auto',
-            gap: 24,
+            gap: 'var(--space-3)',
           }}
         >
         <div style={{ display: 'flex', alignItems: 'center', minWidth: 0 }}>
@@ -95,11 +95,11 @@ export default function Navigation({ onNav, activeSection }) {
           ))}
         </div>
 
-        <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 12, minWidth: 0 }}>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 'var(--space-1-5)', minWidth: 0 }}>
           <button
             onClick={() => handleNav('demo')}
             className="btn btn--dark nav-demo-desktop"
-            style={{ padding: '8px 20px', fontSize: 12 }}
+            style={{ padding: 'var(--space-1) var(--space-3)', fontSize: 12 }}
           >
             Get a Demo
           </button>
@@ -110,7 +110,7 @@ export default function Navigation({ onNav, activeSection }) {
             className="hamburger-btn"
             style={{
               background: 'none',
-              border: '2px solid #000',
+              border: '2px solid var(--black)',
               width: 40,
               height: 40,
               display: 'none',
@@ -122,18 +122,18 @@ export default function Navigation({ onNav, activeSection }) {
               flexShrink: 0,
             }}
           >
-            <span style={{ display: 'block', width: 16, height: 2, background: '#000', transition: 'transform 200ms', transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
-            <span style={{ display: 'block', width: 16, height: 2, background: '#000', opacity: menuOpen ? 0 : 1, transition: 'opacity 200ms' }} />
-            <span style={{ display: 'block', width: 16, height: 2, background: '#000', transition: 'transform 200ms', transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }} />
+            <span style={{ display: 'block', width: 16, height: 2, background: 'var(--black)', transition: 'transform 200ms', transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
+            <span style={{ display: 'block', width: 16, height: 2, background: 'var(--black)', opacity: menuOpen ? 0 : 1, transition: 'opacity 200ms' }} />
+            <span style={{ display: 'block', width: 16, height: 2, background: 'var(--black)', transition: 'transform 200ms', transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }} />
           </button>
         </div>
       </nav>
 
       {menuOpen && (
         <div style={{
-          borderTop: '1px solid #e2e8f0',
-          background: '#fff',
-          padding: '16px 0 24px',
+          borderTop: '1px solid var(--hairline)',
+          background: 'var(--white)',
+          padding: 'var(--space-2) 0 var(--space-3)',
         }}>
           {NAV_ITEMS.map((item) => (
             <button
@@ -145,20 +145,20 @@ export default function Navigation({ onNav, activeSection }) {
                 textAlign: 'left',
                 background: 'none',
                 border: 'none',
-                borderBottom: '1px solid #e2e8f0',
-                padding: '14px var(--page-padding)',
+                borderBottom: '1px solid var(--hairline)',
+                padding: 'var(--space-2) var(--page-padding)',
                 fontFamily: 'var(--font-mono)',
                 fontSize: 11,
                 fontWeight: 700,
                 textTransform: 'uppercase',
-                color: '#1a1a1a',
+                color: 'var(--ink)',
                 cursor: 'pointer',
               }}
             >
               {item.label}
             </button>
           ))}
-          <div style={{ padding: '20px var(--page-padding) 0' }}>
+          <div style={{ padding: 'var(--space-3) var(--page-padding) 0' }}>
             <button
               onClick={() => handleNav('demo')}
               className="btn btn--dark"
@@ -200,8 +200,8 @@ function NavLink({ label, onClick, active }) {
         fontSize: 12,
         fontWeight: 700,
         textTransform: 'uppercase',
-        color: active || hovered ? '#553d97' : '#1a1a1a',
-        padding: '12px 10px',
+        color: active || hovered ? 'var(--purple)' : 'var(--ink)',
+        padding: 'var(--space-1-5) var(--space-1-5)',
         display: 'flex',
         alignItems: 'center',
         cursor: 'pointer',

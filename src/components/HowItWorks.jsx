@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import BulletList from './BulletList.jsx';
 
 const STEPS = [
   {
@@ -88,8 +89,8 @@ export default function HowItWorks({ onNav }) {
       className="section-border"
     >
       <div style={{ maxWidth: 'var(--max-width)', margin: '0 auto' }}>
-        <div style={{ padding: '112px var(--page-padding) 48px' }}>
-          <span className="eyebrow eyebrow--caption" style={{ marginBottom: 20 }}>
+        <div style={{ padding: 'var(--space-14) var(--page-padding) var(--space-6)' }}>
+          <span className="eyebrow eyebrow--caption" style={{ marginBottom: 'var(--space-3)' }}>
             How It Works
           </span>
           <h2
@@ -98,7 +99,7 @@ export default function HowItWorks({ onNav }) {
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(32px, 3.2vw, 48px)',
               fontWeight: 400,
-              color: '#1a1a1a',
+              color: 'var(--ink)',
               maxWidth: 560,
             }}
           >
@@ -121,8 +122,8 @@ export default function HowItWorks({ onNav }) {
             display: 'grid',
             gridTemplateColumns: '1fr',
             rowGap: 4,
-            paddingTop: 56,
-            paddingBottom: 56,
+            paddingTop: 'var(--space-7)',
+            paddingBottom: 'var(--space-7)',
           }}
         >
           {STEPS.map((step) => (
@@ -130,12 +131,12 @@ export default function HowItWorks({ onNav }) {
               key={step.num}
               className="step-card"
               style={{
-                padding: '20px var(--page-padding)',
+                padding: 'var(--space-3) var(--page-padding)',
                 borderTop: 'none',
                 display: 'grid',
                 gridTemplateColumns: '120px minmax(0, 1.3fr) minmax(240px, 0.9fr)',
-                columnGap: 32,
-                rowGap: 12,
+                columnGap: 'var(--space-4)',
+                rowGap: 'var(--space-1-5)',
                 alignItems: 'start',
               }}
             >
@@ -145,7 +146,7 @@ export default function HowItWorks({ onNav }) {
                   fontFamily: 'var(--font-display)',
                   fontSize: 64,
                   fontWeight: 400,
-                  color: '#e2e8f0',
+                  color: 'var(--hairline)',
                   lineHeight: 1,
                 }}
               >
@@ -158,8 +159,8 @@ export default function HowItWorks({ onNav }) {
                     fontFamily: 'var(--font-ui)',
                     fontSize: 16,
                     fontWeight: 700,
-                    color: '#1a1a1a',
-                    marginBottom: 12,
+                    color: 'var(--ink)',
+                    marginBottom: 'var(--space-1-5)',
                   }}
                 >
                   {step.head}
@@ -168,7 +169,7 @@ export default function HowItWorks({ onNav }) {
                   style={{
                     fontFamily: 'var(--font-body)',
                     fontSize: 14,
-                    color: '#1a1a1a',
+                    color: 'var(--ink)',
                     marginBottom: 0,
                     maxWidth: 520,
                   }}
@@ -180,41 +181,12 @@ export default function HowItWorks({ onNav }) {
               <div
                 className="step-detail"
                 style={{
-                  borderLeft: '1px solid #e2e8f0',
-                  paddingLeft: 24,
-                  paddingTop: 8,
+                  borderLeft: '1px solid var(--hairline)',
+                  paddingLeft: 'var(--space-3)',
+                  paddingTop: 'var(--space-1)',
                 }}
               >
-                {step.detail.map((item, index) => (
-                  <div
-                    key={item}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      gap: 10,
-                      marginBottom: index < step.detail.length - 1 ? 8 : 0,
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: 4,
-                        height: 4,
-                        background: '#553d97',
-                        flexShrink: 0,
-                        marginTop: 7,
-                      }}
-                    />
-                    <span
-                      style={{
-                        fontFamily: 'var(--font-ui)',
-                        fontSize: 13,
-                        color: '#1a1a1a',
-                      }}
-                    >
-                      {item}
-                    </span>
-                  </div>
-                ))}
+                <BulletList items={step.detail} font="ui" fontSize={13} />
               </div>
             </div>
           ))}
@@ -229,7 +201,7 @@ export default function HowItWorks({ onNav }) {
             .step-detail {
               grid-column: 2;
               border-left: none !important;
-              border-top: 1px solid #e2e8f0;
+              border-top: 1px solid var(--hairline);
               padding-left: 0 !important;
               padding-top: 16px;
               margin-top: 8px;

@@ -192,7 +192,7 @@ export default function WhereWeAre() {
                   textTransform: 'uppercase',
                   color: 'var(--purple)',
                   display: 'block',
-                  marginBottom: '12px',
+                  marginBottom: 'var(--space-1-5)',
                 }}
               >
                 EPR Funding
@@ -203,7 +203,7 @@ export default function WhereWeAre() {
                   fontSize: 28,
                   fontWeight: 400,
                   color: 'var(--ink)',
-                  marginBottom: '12px',
+                  marginBottom: 'var(--space-1-5)',
                   maxWidth: 520,
                 }}
               >
@@ -215,7 +215,7 @@ export default function WhereWeAre() {
                   fontSize: 15,
                   color: 'var(--gray-700)',
                   maxWidth: 700,
-                  marginBottom: '10px',
+                  marginBottom: 'var(--space-1-5)',
                 }}
               >
                 For municipalities, EPR funding programs can reimburse the cost of deploying Reframe. We&apos;ll help you figure out if your program qualifies and how to apply.

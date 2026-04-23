@@ -201,7 +201,7 @@ function ContaminationDiagram() {
                 background: bar.color,
                 display: 'flex',
                 alignItems: 'center',
-                paddingLeft: 12,
+                paddingLeft: 'var(--space-1-5)',
               }}
             >
               <span style={{
@@ -227,7 +227,7 @@ function ContaminationDiagram() {
         <p>Sources:</p>
         <ul style={{
           listStylePosition: 'inside',
-          marginTop: '8',
+          marginTop: 'var(--space-1)',
         }}>
           <li>
             <a

@@ -41,7 +41,7 @@ export default function SocialProof() {
       });
       gsap.from('.sp-item', {
         opacity: 0,
-        y: 12,
+        y: 'var(--space-1-5)',
         duration: 0.6,
         stagger: 0.08,
         ease: 'power2.out',
@@ -55,16 +55,15 @@ export default function SocialProof() {
     <section
       ref={sectionRef}
       className="section-border"
-      style={{ background: '#fff' }}
     >
       <div style={{
         maxWidth: 'var(--max-width)',
         margin: '0 auto',
-        padding: '64px var(--page-padding)',
+        padding: 'var(--space-8) var(--page-padding)',
       }}>
         <span
           className="eyebrow eyebrow--caption sp-eyebrow"
-          style={{ marginBottom: 28, display: 'block', textAlign: 'center' }}
+          style={{ marginBottom: 'var(--space-4)', display: 'block', textAlign: 'center' }}
         >
           Trusted By
         </span>
@@ -84,8 +83,8 @@ export default function SocialProof() {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: 12,
-                padding: '28px 32px',
+                gap: 'var(--space-1-5)',
+                padding: 'var(--space-4)',
                 minHeight: 140,
               }}
             >
@@ -104,7 +103,7 @@ export default function SocialProof() {
                 fontFamily: 'var(--font-mono)',
                 fontSize: 9,
                 textTransform: 'uppercase',
-                color: '#999',
+                color: 'var(--gray-400)',
               }}>
                 {p.kind}
               </span>
@@ -125,7 +124,7 @@ export default function SocialProof() {
 
             .sp-item {
               border-left: none !important;
-              border-top: 1px solid #e2e8f0;
+              border-top: 1px solid var(--hairline);
             }
 
             .sp-item:first-child {

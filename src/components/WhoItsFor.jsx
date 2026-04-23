@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import BulletList from './BulletList.jsx';
 
 const AUDIENCES = {
   municipalities: {
@@ -19,7 +20,7 @@ const AUDIENCES = {
       'Replace manual inspections with automated daily reporting',
     ],
     quote: "Your trucks don't change. Your drivers don't change. You see everything you couldn't see before.",
-    quoteAccent: '#553d97',
+    quoteAccent: 'var(--purple)',
   },
   haulers: {
     tabLabel: 'For Private Haulers',
@@ -38,7 +39,7 @@ const AUDIENCES = {
       'Resolve missed collection disputes with GPS-verified route data from every run',
     ],
     quote: 'Live on Waste Connections trucks in Queen Creek. Manual audit obligation replaced with automatic documentation.',
-    quoteAccent: '#000',
+    quoteAccent: 'var(--black)',
   },
 };
 
@@ -70,7 +71,6 @@ export default function WhoItsFor() {
     return () => ctx.revert();
   }, []);
 
-  // Fade/slide panel contents when tab switches
   useEffect(() => {
     if (!panelRef.current) return;
     const ctx = gsap.context(() => {
@@ -94,8 +94,8 @@ export default function WhoItsFor() {
       <div style={{ maxWidth: 'var(--max-width)', margin: '0 auto' }}>
 
         {/* Header */}
-        <div style={{ padding: '96px var(--page-padding) 0' }}>
-          <span className="eyebrow eyebrow--caption" style={{ marginBottom: 20 }}>
+        <div style={{ padding: 'var(--section-pad-y) var(--page-padding) 0' }}>
+          <span className="eyebrow eyebrow--caption" style={{ marginBottom: 'var(--space-3)' }}>
             Who It's For
           </span>
           <h2
@@ -104,7 +104,7 @@ export default function WhoItsFor() {
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(32px, 3.2vw, 48px)',
               fontWeight: 400,
-              color: '#1a1a1a',
+              color: 'var(--ink)',
               maxWidth: 560,
               marginBottom: 0,
             }}
@@ -123,7 +123,7 @@ export default function WhoItsFor() {
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
-            marginTop: 40,
+            marginTop: 'var(--space-5)',
           }}
         >
           {Object.entries(AUDIENCES).map(([key, cfg], i) => {
@@ -133,13 +133,13 @@ export default function WhoItsFor() {
                 key={key}
                 onClick={() => setActive(key)}
                 style={{
-                  background: isActive ? '#fff' : '#ededed',
-                  color: isActive ? '#1a1a1a' : '#757575',
+                  background: isActive ? 'var(--white)' : 'var(--gray-100)',
+                  color: isActive ? 'var(--ink)' : 'var(--caption)',
                   border: 'none',
-                  borderRight: i === 0 ? '1px solid #000' : 'none',
-                  borderBottom: isActive ? '1px solid #fff' : '1px solid #000',
-                  borderTop: isActive ? '1px solid #000' : 'none',
-                  padding: '22px var(--page-padding)',
+                  borderRight: i === 0 ? '1px solid var(--black)' : 'none',
+                  borderBottom: isActive ? '1px solid var(--white)' : '1px solid var(--black)',
+                  borderTop: isActive ? '1px solid var(--black)' : 'none',
+                  padding: 'var(--space-3) var(--page-padding)',
                   marginBottom: isActive ? -1 : 0,
                   fontFamily: 'var(--font-mono)',
                   fontSize: 12,
@@ -162,24 +162,24 @@ export default function WhoItsFor() {
           ref={panelRef}
           className="audience-panel"
           style={{
-            padding: '64px var(--page-padding) 96px',
+            padding: 'var(--space-8) var(--page-padding) var(--space-12)',
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
-            gap: 48,
+            gap: 'var(--space-6)',
           }}
           key={active}
         >
           {/* Left: narrative */}
           <div>
-            <span className="eyebrow eyebrow--purple" style={{ marginBottom: 16 }}>
+            <span className="eyebrow eyebrow--purple" style={{ marginBottom: 'var(--space-2)' }}>
               {data.eyebrow}
             </span>
             <h3 style={{
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(22px, 2vw, 28px)',
               fontWeight: 400,
-              color: '#1a1a1a',
-              marginBottom: 16,
+              color: 'var(--ink)',
+              marginBottom: 'var(--space-2)',
               maxWidth: 440,
             }}>
               {data.headline}
@@ -190,8 +190,8 @@ export default function WhoItsFor() {
                 style={{
                   fontFamily: 'var(--font-body)',
                   fontSize: 16,
-                  color: '#1a1a1a',
-                  marginBottom: 20,
+                  color: 'var(--ink)',
+                  marginBottom: 'var(--space-3)',
                 }}
               >
                 {p}
@@ -200,17 +200,17 @@ export default function WhoItsFor() {
 
             <div
               style={{
-                background: '#f5f5f5',
-                padding: '20px 24px',
+                background: 'var(--gray-50)',
+                padding: 'var(--space-3)',
                 borderLeft: `3px solid ${data.quoteAccent}`,
-                marginTop: 12,
+                marginTop: 'var(--space-1-5)',
               }}
             >
               <p style={{
                 fontFamily: 'var(--font-body)',
                 fontStyle: 'italic',
                 fontSize: 15,
-                color: '#757575',
+                color: 'var(--caption)',
               }}>
                 {data.quote}
               </p>
@@ -219,31 +219,10 @@ export default function WhoItsFor() {
 
           {/* Right: bullets */}
           <div>
-            <span className="eyebrow eyebrow--caption" style={{ marginBottom: 20, display: 'block' }}>
+            <span className="eyebrow eyebrow--caption" style={{ marginBottom: 'var(--space-3)', display: 'block' }}>
               {data.bulletsLabel}
             </span>
-            {data.bullets.map((item, i) => (
-              <div
-                key={i}
-                style={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  gap: 12,
-                  paddingBottom: i < data.bullets.length - 1 ? 14 : 0,
-                  marginBottom: i < data.bullets.length - 1 ? 14 : 0,
-                  borderBottom: i < data.bullets.length - 1 ? '1px solid #e2e8f0' : 'none',
-                }}
-              >
-                <div style={{ width: 4, height: 4, background: '#553d97', flexShrink: 0, marginTop: 7 }} />
-                <span style={{
-                  fontFamily: 'var(--font-body)',
-                  fontSize: 15,
-                  color: '#1a1a1a',
-                }}>
-                  {item}
-                </span>
-              </div>
-            ))}
+            <BulletList items={data.bullets} font="body" fontSize={15} separator />
           </div>
         </div>
 

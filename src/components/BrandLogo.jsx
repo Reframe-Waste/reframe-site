@@ -12,7 +12,7 @@ export function DarkLogo() {
           fontSize: 12,
           fontWeight: 700,
           textTransform: 'uppercase',
-          color: '#000',
+          color: 'var(--black)',
           lineHeight: 1.05,
           display: 'flex',
           flexDirection: 'column',
@@ -28,7 +28,7 @@ export function DarkLogo() {
 
 export function LightLogo() {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-1-5)' }}>
       <img
         src={`${import.meta.env.BASE_URL}assets/reframe-logo.png`}
         alt="Reframe Waste"
@@ -40,7 +40,7 @@ export function LightLogo() {
           fontSize: 13,
           fontWeight: 700,
           textTransform: 'uppercase',
-          color: '#fff',
+          color: 'var(--white)',
           lineHeight: 1.05,
           display: 'flex',
           flexDirection: 'column',

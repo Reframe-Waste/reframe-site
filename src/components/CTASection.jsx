@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import BulletList from './BulletList.jsx';
+
+const DEMO_ITEMS = [
+  'Live dashboard walkthrough with real data, not a demo environment',
+  'Address-level contamination map from current deployments',
+  'Discussion of pilot scope: timeline, fleet size, and pricing',
+  'Most pilots launch within weeks of a signed agreement',
+];
 
 export default function CTASection() {
   const sectionRef = useRef();
@@ -48,12 +56,12 @@ export default function CTASection() {
   const inputStyle = {
     fontFamily: 'var(--font-ui)',
     fontSize: 15,
-    color: '#1a1a1a',
+    color: 'var(--ink)',
     border: 'none',
     borderBottom: '2px solid transparent',
     borderRadius: 0,
-    padding: '14px 16px 12px',
-    background: '#fff',
+    padding: 'var(--space-2) var(--space-2) var(--space-1-5)',
+    background: 'var(--white)',
     width: '100%',
     outline: 'none',
     display: 'block',
@@ -68,23 +76,19 @@ export default function CTASection() {
     fontSize: 10,
     fontWeight: 700,
     textTransform: 'uppercase',
-    color: '#1a1a1a',
+    color: 'var(--ink)',
     display: 'block',
-    marginBottom: 8,
+    marginBottom: 'var(--space-1)',
   };
 
   if (submitted) {
     return (
-      <section id="demo" ref={sectionRef} style={{ borderBottom: '2px solid #000', overflow: 'hidden', position: 'relative' }}>
-        <div ref={bgRef} style={{ position: 'absolute', inset: 0, background: '#000', zIndex: 0 }} />
-        <div style={{ position: 'relative', zIndex: 1, padding: '96px var(--page-padding)', textAlign: 'center' }}>
-          <span className="eyebrow" style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: 13,
-            textTransform: 'uppercase',
-            color: '#a78bd9',
+      <section id="demo" ref={sectionRef} className="section-border" style={{ overflow: 'hidden', position: 'relative' }}>
+        <div ref={bgRef} style={{ position: 'absolute', inset: 0, background: 'var(--black)', zIndex: 0 }} />
+        <div style={{ position: 'relative', zIndex: 1, padding: 'var(--section-pad-y) var(--page-padding)', textAlign: 'center' }}>
+          <span className="eyebrow eyebrow--purple" style={{
             display: 'block',
-            marginBottom: 24,
+            marginBottom: 'var(--space-3)',
           }}>
             Request Received
           </span>
@@ -92,17 +96,17 @@ export default function CTASection() {
             fontFamily: 'var(--font-display)',
             fontSize: 52,
             fontWeight: 400,
-            color: '#fff',
-            marginBottom: 24,
+            color: 'var(--white)',
+            marginBottom: 'var(--space-3)',
           }}>
             We'll be in touch shortly.
           </h2>
           <p style={{
             fontFamily: 'var(--font-body)',
             fontSize: 18,
-            color: '#999',
+            color: 'var(--gray-400)',
             maxWidth: 480,
-            margin: '0 auto 40px',
+            margin: '0 auto var(--space-5)',
           }}>
             A member of the Reframe team will reach out within one business day to schedule your dashboard walkthrough.
           </p>
@@ -141,7 +145,7 @@ export default function CTASection() {
         <div
           className="cta-content"
           style={{
-            padding: '72px var(--page-padding)',
+            padding: 'var(--space-9) var(--page-padding)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -150,13 +154,9 @@ export default function CTASection() {
           }}
         >
           <div>
-            <span className="eyebrow" style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: 11,
-              textTransform: 'uppercase',
-              color: 'var(--purple)',
+            <span className="eyebrow eyebrow--purple" style={{
               display: 'block',
-              marginBottom: 24,
+              marginBottom: 'var(--space-3)',
             }}>
               See What Your Routes Actually Look Like
             </span>
@@ -164,7 +164,7 @@ export default function CTASection() {
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(32px, 3vw, 48px)',
               fontWeight: 400,
-              marginBottom: 24,
+              marginBottom: 'var(--space-3)',
               maxWidth: 440,
             }}>
               We'll show you the actual product dashboard with real collection data.
@@ -175,27 +175,14 @@ export default function CTASection() {
               color: 'var(--caption)',
               marginBottom: 0,
               maxWidth: 420,
-              paddingBottom: 48,
+              paddingBottom: 'var(--space-6)',
             }}>
               No pitch deck. Just the product. From there, we'll talk about what a pilot looks like for your program.
             </p>
           </div>
 
-          <div style={{ borderTop: '1px solid var(--gray-400)', paddingTop: 32 }}>
-            {[
-              'Live dashboard walkthrough with real data, not a demo environment',
-              'Address-level contamination map from current deployments',
-              'Discussion of pilot scope: timeline, fleet size, and pricing',
-              'Most pilots launch within weeks of a signed agreement',
-            ].map((item, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 12, marginBottom: i < 3 ? 14 : 0 }}>
-                <div style={{ width: 5, height: 5, background: 'var(--purple)', flexShrink: 0, marginTop: 6 }} />
-                <span style={{ fontFamily: 'var(--font-ui)', fontSize: 14, lineHeight: 1.5, color: 'var(--ink)' }}>
-                  {item}
-                </span>
-              </div>
-            ))}
-
+          <div style={{ borderTop: '1px solid var(--gray-400)', paddingTop: 'var(--space-4)' }}>
+            <BulletList items={DEMO_ITEMS} font="ui" fontSize={14} />
           </div>
         </div>
 
@@ -204,7 +191,7 @@ export default function CTASection() {
           ref={formRef}
           className="cta-form-panel"
           style={{
-            padding: '72px var(--page-padding)',
+            padding: 'var(--space-9) var(--page-padding)',
             background: 'var(--gray-50)',
             display: 'flex',
             flexDirection: 'column',
@@ -216,14 +203,14 @@ export default function CTASection() {
             fontSize: 11,
             fontWeight: 700,
             textTransform: 'uppercase',
-            color: '#757575',
+            color: 'var(--caption)',
             display: 'block',
-            marginBottom: 32,
+            marginBottom: 'var(--space-4)',
           }}>
             Schedule a Demo
           </span>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-3)', marginBottom: 'var(--space-3)' }}>
             <div>
               <label style={labelStyle}>Full Name</label>
               <input
@@ -248,7 +235,7 @@ export default function CTASection() {
             </div>
           </div>
 
-          <div style={{ marginBottom: 20 }}>
+          <div style={{ marginBottom: 'var(--space-3)' }}>
             <label style={labelStyle}>Organisation</label>
             <input
               className="cta-input"
@@ -260,7 +247,7 @@ export default function CTASection() {
             />
           </div>
 
-          <div style={{ marginBottom: 20 }}>
+          <div style={{ marginBottom: 'var(--space-3)' }}>
             <label style={labelStyle}>Fleet Size (vehicles)</label>
             <input
               className="cta-input"
@@ -272,7 +259,7 @@ export default function CTASection() {
             />
           </div>
 
-          <div style={{ marginBottom: 32 }}>
+          <div style={{ marginBottom: 'var(--space-4)' }}>
             <label style={labelStyle}>Anything else?</label>
             <textarea
               className="cta-input cta-input--textarea"
@@ -297,7 +284,7 @@ export default function CTASection() {
             fontSize: 10,
             textTransform: 'uppercase',
             color: 'var(--gray-700)',
-            marginTop: 16,
+            marginTop: 'var(--space-2)',
           }}>
             We respond within one business day. No commitment required.
           </p>

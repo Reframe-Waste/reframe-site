@@ -52,12 +52,12 @@ export default function Footer() {
   };
 
   return (
-    <footer ref={footerRef} style={{ background: '#1a1a1a', color: '#fff' }}>
+    <footer ref={footerRef} style={{ background: 'var(--ink)', color: 'var(--white)' }}>
 
       <div style={{
         maxWidth: 'var(--max-width)',
         margin: '0 auto',
-        padding: '48px var(--page-padding) 32px',
+        padding: 'var(--space-6) var(--page-padding) var(--space-4)',
       }}>
         {/* Logo + tagline */}
         <div
@@ -66,17 +66,17 @@ export default function Footer() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',
-            gap: 14,
-            marginBottom: 48,
-            paddingBottom: 40,
-            borderBottom: '1px solid #333',
+            gap: 'var(--space-2)',
+            marginBottom: 'var(--space-6)',
+            paddingBottom: 'var(--space-5)',
+            borderBottom: '1px solid var(--gray-750)',
           }}
         >
           <LightLogo />
           <span style={{
             fontFamily: 'var(--font-body)',
             fontSize: 12,
-            color: '#aaa',
+            color: 'var(--gray-300)',
             fontStyle: 'italic',
           }}>
             AI-powered contamination detection for waste collection fleets
@@ -87,8 +87,8 @@ export default function Footer() {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: 32,
-          marginBottom: 48,
+          gap: 'var(--space-4)',
+          marginBottom: 'var(--space-6)',
           maxWidth: 480,
         }}>
           {COLS.map((col) => (
@@ -98,8 +98,8 @@ export default function Footer() {
                 fontSize: 10,
                 fontWeight: 700,
                 textTransform: 'uppercase',
-                color: '#fff',
-                marginBottom: 16,
+                color: 'var(--white)',
+                marginBottom: 'var(--space-2)',
               }}>
                 {col.head}
               </div>
@@ -118,18 +118,18 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div style={{
-          borderTop: '1px solid #333',
-          paddingTop: 24,
+          borderTop: '1px solid var(--gray-750)',
+          paddingTop: 'var(--space-3)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           flexWrap: 'wrap',
-          gap: 16,
+          gap: 'var(--space-2)',
         }}>
           <span style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 10,
-            color: '#aaa',
+            color: 'var(--gray-300)',
             textTransform: 'uppercase',
           }}>
             © 2026 Reframe Technologies Inc. All rights reserved.
@@ -139,13 +139,13 @@ export default function Footer() {
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: 10,
-              color: '#ccc',
+              color: 'var(--gray-200)',
               textDecoration: 'underline',
               textTransform: 'uppercase',
               transition: 'color 120ms',
             }}
-            onMouseEnter={e => e.currentTarget.style.color = '#a78bd9'}
-            onMouseLeave={e => e.currentTarget.style.color = '#ccc'}
+            onMouseEnter={e => e.currentTarget.style.color = 'var(--purple-bright)'}
+            onMouseLeave={e => e.currentTarget.style.color = 'var(--gray-200)'}
           >
             hello@reframewaste.com
           </a>
@@ -166,9 +166,9 @@ function FooterLink({ label, href, id, onNav }) {
           display: 'block',
           fontFamily: 'var(--font-ui)',
           fontSize: 13,
-          color: hovered ? '#a78bd9' : '#999',
+          color: hovered ? 'var(--purple-bright)' : 'var(--gray-400)',
           textDecoration: 'none',
-          marginBottom: 10,
+          marginBottom: 'var(--space-1)',
           transition: 'color 120ms',
         }}
         onMouseEnter={() => setHovered(true)}
@@ -188,9 +188,9 @@ function FooterLink({ label, href, id, onNav }) {
         border: 'none',
         fontFamily: 'var(--font-ui)',
         fontSize: 13,
-        color: hovered ? '#a78bd9' : '#999',
+        color: hovered ? 'var(--purple-bright)' : 'var(--gray-400)',
         textDecoration: 'none',
-        marginBottom: 10,
+        marginBottom: 'var(--space-1)',
         transition: 'color 120ms',
         cursor: 'pointer',
         padding: 0,
