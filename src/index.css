@@ -328,7 +328,6 @@ button {
 
 /* ─── RESPONSIVE ──────────────────────────────────────────── */
 @media (max-width: 1023px) {
-  html { font-size: 14px; }
   :root {
     --page-padding: var(--space-4);         /* 32px */
     --section-pad-y: var(--space-8);        /* 64px */
@@ -337,7 +336,6 @@ button {
 }
 
 @media (max-width: 767px) {
-  html { font-size: 12px; }
   :root {
     --page-padding: var(--space-3);         /* 24px */
     --section-pad-y: var(--space-6);        /* 48px */

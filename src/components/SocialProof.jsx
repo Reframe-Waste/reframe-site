@@ -121,15 +121,6 @@ export default function SocialProof() {
             .sp-grid {
               grid-template-columns: 1fr !important;
             }
-
-            .sp-item {
-              border-left: none !important;
-              border-top: 1px solid var(--hairline);
-            }
-
-            .sp-item:first-child {
-              border-top: none;
-            }
           }
         `}</style>
       </div>
