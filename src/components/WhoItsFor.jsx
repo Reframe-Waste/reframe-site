@@ -1,0 +1,262 @@
+import { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+const AUDIENCES = {
+  municipalities: {
+    tabLabel: 'For Municipalities',
+    eyebrow: 'For Municipalities',
+    headline: 'See every route, every household, every collection day.',
+    body: [
+      "In Queen Creek, we've audited 14,497 residential customers and identified over 25,000 contaminated services. The town's inspectors get a daily contamination digest instead of driving routes themselves. 537 automated notices have gone out to residents. That outreach didn't exist before because the data didn't exist.",
+    ],
+    bulletsLabel: 'What that means for your program',
+    bullets: [
+      'Meet diversion targets with address-level data instead of estimates',
+      'Comply with state mandates like SB1383 with automated contamination documentation',
+      'Access EPR funding that can offset the full cost of deploying Reframe',
+      'Defend your recycling program to council with real data behind every recommendation',
+      'Replace manual inspections with automated daily reporting',
+    ],
+    quote: "Your trucks don't change. Your drivers don't change. You see everything you couldn't see before.",
+    quoteAccent: '#553d97',
+  },
+  haulers: {
+    tabLabel: 'For Private Haulers',
+    eyebrow: 'For Private Haulers',
+    headline: 'Show your municipal clients what their contract actually delivers.',
+    body: [
+      'When you\'re bidding on a municipal contract, "we have cameras on our trucks" is table stakes. Contamination data, route verification, and resident outreach as part of your service is a competitive advantage.',
+      "Reframe is live on Waste Connections trucks in Queen Creek right now. We've replaced their manual audit obligation with automatic documentation that satisfies the city's requirements.",
+    ],
+    bulletsLabel: 'What that means for your contract',
+    bullets: [
+      'Replace time-intensive manual audits with automatic, defensible documentation',
+      'Identify overages and non-conforming material with a clear data trail',
+      'Demonstrate service quality to municipal clients without relying on driver self-reporting',
+      'Use contamination data to support contract renegotiation or overage billing',
+      'Resolve missed collection disputes with GPS-verified route data from every run',
+    ],
+    quote: 'Live on Waste Connections trucks in Queen Creek. Manual audit obligation replaced with automatic documentation.',
+    quoteAccent: '#000',
+  },
+};
+
+export default function WhoItsFor() {
+  const sectionRef = useRef();
+  const ribbonRef = useRef();
+  const panelRef = useRef();
+  const [active, setActive] = useState('municipalities');
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(ribbonRef.current, {
+        opacity: 0,
+        y: 12,
+        duration: 0.6,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: ribbonRef.current, start: 'top 90%', once: true },
+      });
+
+      gsap.from('.wif-headline .headline-inner', {
+        y: '110%',
+        duration: 0.9,
+        stagger: 0.1,
+        ease: 'power4.out',
+        scrollTrigger: { trigger: '.wif-headline', start: 'top 85%', once: true },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  // Fade/slide panel contents when tab switches
+  useEffect(() => {
+    if (!panelRef.current) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        '.audience-panel > *',
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.45, stagger: 0.05, ease: 'power2.out' }
+      );
+    }, panelRef);
+    return () => ctx.revert();
+  }, [active]);
+
+  const data = AUDIENCES[active];
+
+  return (
+    <section
+      id="who-its-for"
+      ref={sectionRef}
+      className="section-border"
+    >
+      <div style={{ maxWidth: 'var(--max-width)', margin: '0 auto' }}>
+
+        {/* Header */}
+        <div style={{ padding: '96px var(--page-padding) 0' }}>
+          <span className="eyebrow eyebrow--caption" style={{ marginBottom: 20 }}>
+            Who It's For
+          </span>
+          <h2
+            className="wif-headline"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(32px, 3.2vw, 48px)',
+              fontWeight: 400,
+              color: '#1a1a1a',
+              maxWidth: 560,
+              marginBottom: 0,
+            }}
+          >
+            {['Built for municipalities', 'and haulers.'].map((line, i) => (
+              <div key={i} className="headline-mask">
+                <span className="headline-inner">{line}</span>
+              </div>
+            ))}
+          </h2>
+        </div>
+
+        {/* Tabs */}
+        <div
+          ref={ribbonRef}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            marginTop: 40,
+          }}
+        >
+          {Object.entries(AUDIENCES).map(([key, cfg], i) => {
+            const isActive = key === active;
+            return (
+              <button
+                key={key}
+                onClick={() => setActive(key)}
+                style={{
+                  background: isActive ? '#fff' : '#ededed',
+                  color: isActive ? '#1a1a1a' : '#757575',
+                  border: 'none',
+                  borderRight: i === 0 ? '1px solid #000' : 'none',
+                  borderBottom: isActive ? '1px solid #fff' : '1px solid #000',
+                  borderTop: isActive ? '1px solid #000' : 'none',
+                  padding: '22px var(--page-padding)',
+                  marginBottom: isActive ? -1 : 0,
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 12,
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                  transition: 'background 150ms, color 150ms',
+                }}
+              >
+                {cfg.tabLabel}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Active panel */}
+        <div
+          ref={panelRef}
+          className="audience-panel"
+          style={{
+            padding: '64px var(--page-padding) 96px',
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: 48,
+          }}
+          key={active}
+        >
+          {/* Left: narrative */}
+          <div>
+            <span className="eyebrow eyebrow--purple" style={{ marginBottom: 16 }}>
+              {data.eyebrow}
+            </span>
+            <h3 style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(22px, 2vw, 28px)',
+              fontWeight: 400,
+              color: '#1a1a1a',
+              marginBottom: 16,
+              maxWidth: 440,
+            }}>
+              {data.headline}
+            </h3>
+            {data.body.map((p, i) => (
+              <p
+                key={i}
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: 16,
+                  color: '#1a1a1a',
+                  marginBottom: 20,
+                }}
+              >
+                {p}
+              </p>
+            ))}
+
+            <div
+              style={{
+                background: '#f5f5f5',
+                padding: '20px 24px',
+                borderLeft: `3px solid ${data.quoteAccent}`,
+                marginTop: 12,
+              }}
+            >
+              <p style={{
+                fontFamily: 'var(--font-body)',
+                fontStyle: 'italic',
+                fontSize: 15,
+                color: '#757575',
+              }}>
+                {data.quote}
+              </p>
+            </div>
+          </div>
+
+          {/* Right: bullets */}
+          <div>
+            <span className="eyebrow eyebrow--caption" style={{ marginBottom: 20, display: 'block' }}>
+              {data.bulletsLabel}
+            </span>
+            {data.bullets.map((item, i) => (
+              <div
+                key={i}
+                style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: 12,
+                  paddingBottom: i < data.bullets.length - 1 ? 14 : 0,
+                  marginBottom: i < data.bullets.length - 1 ? 14 : 0,
+                  borderBottom: i < data.bullets.length - 1 ? '1px solid #e2e8f0' : 'none',
+                }}
+              >
+                <div style={{ width: 4, height: 4, background: '#553d97', flexShrink: 0, marginTop: 7 }} />
+                <span style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: 15,
+                  color: '#1a1a1a',
+                }}>
+                  {item}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <style>{`
+          @media (max-width: 767px) {
+            .audience-panel {
+              grid-template-columns: 1fr !important;
+              gap: 24px !important;
+            }
+          }
+        `}</style>
+
+      </div>
+    </section>
+  );
+}

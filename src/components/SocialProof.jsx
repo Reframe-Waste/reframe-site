@@ -1,0 +1,145 @@
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+const PARTNERS = [
+  {
+    name: 'City of Tucson',
+    kind: 'Municipality',
+    logo: '/assets/partners/city-of-tucson.jpg',
+    logoWidth: 250,
+    logoHeight: 64,
+  },
+  {
+    name: 'Waste Connections',
+    kind: 'Hauler',
+    logo: '/assets/partners/waste-connections.png',
+    logoWidth: 230,
+    logoHeight: 64,
+  },
+  {
+    name: 'Maricopa Association of Governments',
+    kind: 'Regional Body',
+    logo: '/assets/partners/mag-vertical.png',
+    logoWidth: 170,
+    logoHeight: 118,
+  },
+  {
+    name: 'Town of Queen Creek, Arizona',
+    kind: 'Municipality',
+    logo: '/assets/partners/waste-connections.svg',
+    logoWidth: 240,
+    logoHeight: 64,
+  },
+];
+
+export default function SocialProof() {
+  const sectionRef = useRef();
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from('.sp-eyebrow', {
+        opacity: 0,
+        x: -16,
+        duration: 0.6,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 90%', once: true },
+      });
+      gsap.from('.sp-item', {
+        opacity: 0,
+        y: 12,
+        duration: 0.6,
+        stagger: 0.08,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 90%', once: true },
+      });
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="section-border"
+      style={{ background: '#fff' }}
+    >
+      <div style={{
+        maxWidth: 'var(--max-width)',
+        margin: '0 auto',
+        padding: '64px var(--page-padding)',
+      }}>
+        <span
+          className="eyebrow eyebrow--caption sp-eyebrow"
+          style={{ marginBottom: 28, display: 'block', textAlign: 'center' }}
+        >
+          Trusted By
+        </span>
+        <div
+          className="sp-grid"
+          style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+          alignItems: 'stretch',
+        }}>
+          {PARTNERS.map((p, i) => (
+            <div
+              key={i}
+              className="sp-item"
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 12,
+                padding: '28px 32px',
+                minHeight: 140,
+              }}
+            >
+              <img
+                src={p.logo}
+                alt={p.name}
+                style={{
+                  width: '100%',
+                  maxWidth: p.logoWidth,
+                  height: p.logoHeight,
+                  objectFit: 'contain',
+                  objectPosition: 'center',
+                }}
+              />
+              <span style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: 9,
+                textTransform: 'uppercase',
+                color: '#999',
+              }}>
+                {p.kind}
+              </span>
+            </div>
+          ))}
+        </div>
+        <style>{`
+          @media (max-width: 1023px) {
+            .sp-grid {
+              grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+          }
+
+          @media (max-width: 767px) {
+            .sp-grid {
+              grid-template-columns: 1fr !important;
+            }
+
+            .sp-item {
+              border-left: none !important;
+              border-top: 1px solid #e2e8f0;
+            }
+
+            .sp-item:first-child {
+              border-top: none;
+            }
+          }
+        `}</style>
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,332 @@
+@font-face {
+  font-family: 'Headland One';
+  src: url('/fonts/HeadlandOne-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('/fonts/Lora-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('/fonts/Lora-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter_18pt-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter_18pt-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter_18pt-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ── Core palette ─────────────────────────────────────────── */
+  --black: #000000;
+  --ink: #1a1a1a;
+  --white: #ffffff;
+  --caption: #757575;
+  --hairline: #e2e8f0;
+  --surface: #f7f6f3;
+  --purple: #553d97;
+  --purple-light: #795fa9;
+  --purple-bright: #a78bd9;
+
+  /* ── Neutral grays (light → dark) ─────────────────────────── */
+  --gray-50:  #f5f5f5;   /* muted surfaces (quote blocks, panels) */
+  --gray-100: #ededed;   /* inactive tab bg */
+  --gray-200: #cccccc;   /* on-dark: email link on black */
+  --gray-300: #aaaaaa;   /* on-dark: tagline + metadata on black */
+  --gray-400: #999999;   /* partner kind labels, subtle metadata */
+  --gray-500: #888888;   /* on-dark: subtle SVG text */
+  --gray-600: #666666;   /* rare — mid on light */
+  --gray-700: #444444;   /* on-dark: subdued italic caption */
+  --gray-800: #2a2a2a;   /* on-dark: SVG fill */
+  --gray-900: #111111;   /* on-dark: deepest SVG fill */
+
+  /* ── Typography ───────────────────────────────────────────── */
+  --font-display: 'Headland One', Georgia, 'Times New Roman', serif;
+  --font-body: 'Lora', Georgia, serif;
+  --font-ui: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* ── Spacing scale (multiples of 0.5rem = 8px base) ───────── */
+  --space-1: 0.5rem;   /*  8px */
+  --space-2: 1rem;     /* 16px */
+  --space-3: 1.5rem;   /* 24px */
+  --space-4: 2rem;     /* 32px */
+  --space-6: 3rem;     /* 48px */
+  --space-8: 4rem;     /* 64px */
+  --space-10: 5rem;    /* 80px */
+  --space-12: 6rem;    /* 96px */
+
+  /* Canonical section padding — pick one vertical rhythm */
+  --section-pad-y: var(--space-12);          /* 96px */
+  --section-pad-y-tight: var(--space-10);    /*  80px (for full-bleed backgrounds) */
+
+  /* ── Layout ───────────────────────────────────────────────── */
+  --page-padding: var(--space-6);            /* 48px */
+  --max-width: 1280px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  background: var(--white);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+body, #root, main {
+  width: 100%;
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: inherit;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+}
+
+/* ─── EYEBROW ─────────────────────────────────────────────── */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+}
+
+.eyebrow--purple { color: var(--purple); }
+.eyebrow--caption { color: var(--caption); }
+.eyebrow--white { color: rgba(255,255,255,0.7); }
+
+/* ─── RIBBON ──────────────────────────────────────────────── */
+.ribbon {
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  padding: 12px var(--page-padding);
+  overflow: hidden;
+}
+
+.ribbon__label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.ribbon__rule {
+  flex: 1;
+  height: 1px;
+  background: #333;
+  margin-left: 16px;
+}
+
+/* ─── BUTTONS ─────────────────────────────────────────────── */
+.btn {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 0;
+  padding: 14px 32px;
+  border: 2px solid var(--black);
+  cursor: pointer;
+  transition: background 150ms, color 150ms, border-color 150ms;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn--dark {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn--dark:hover {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: var(--white);
+}
+
+.btn--light {
+  background: var(--white);
+  color: var(--black);
+}
+
+.btn--light:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn--ghost-white {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white);
+}
+
+.btn--ghost-white:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+/* ─── INLINE LINK ─────────────────────────────────────────── */
+.link-arrow {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: underline;
+  transition: color 120ms;
+}
+
+.link-arrow:hover {
+  color: var(--purple);
+}
+
+/* ─── SECTION WRAPPER ─────────────────────────────────────── */
+.section-border {
+  border-bottom: 2px solid var(--black);
+}
+
+/* ─── GRID HELPERS ────────────────────────────────────────── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.col-rule {
+  border-right: 1px solid var(--black);
+}
+
+/* ─── HEADLINE MASK ───────────────────────────────────────── */
+.headline-mask {
+  overflow: hidden;
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+}
+
+.headline-inner {
+  display: block;
+}
+
+/* ─── IMAGE PLACEHOLDER ───────────────────────────────────── */
+.img-placeholder {
+  background: var(--hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+}
+
+.img-placeholder__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  text-align: center;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  :root {
+    --page-padding: var(--space-4);         /* 32px */
+    --section-pad-y: var(--space-8);        /* 64px */
+    --section-pad-y-tight: var(--space-6);  /* 48px */
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --page-padding: var(--space-3);         /* 24px */
+    --section-pad-y: var(--space-6);        /* 48px */
+    --section-pad-y-tight: var(--space-4);  /* 32px */
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .col-rule {
+    border-right: none;
+    border-bottom: 1px solid var(--black);
+  }
+}
