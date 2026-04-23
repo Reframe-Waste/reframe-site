@@ -2,7 +2,7 @@ export function DarkLogo() {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
       <img
-        src="/assets/reframe-logo.png"
+        src={`${import.meta.env.BASE_URL}assets/reframe-logo.png`}
         alt=""
         style={{ width: 28, height: 28, borderRadius: 4, display: 'block' }}
       />
@@ -30,7 +30,7 @@ export function LightLogo() {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
       <img
-        src="/assets/reframe-logo.png"
+        src={`${import.meta.env.BASE_URL}assets/reframe-logo.png`}
         alt="Reframe Waste"
         style={{ width: 32, height: 32, borderRadius: 4, display: 'block' }}
       />

@@ -135,7 +135,7 @@ export default function Hero({ onNav }) {
         }}
       >
         <img
-          src="/assets/dashboard.webp"
+          src={`${import.meta.env.BASE_URL}assets/dashboard.webp`}
           alt="Reframe dashboard showing contamination map across service area"
           style={{
             width: '100%',
