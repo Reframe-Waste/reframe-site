@@ -73,7 +73,7 @@ export default function Hero({ onNav }) {
           fontFamily: 'var(--font-body)',
           fontSize: 20,
           color: '#1a1a1a',
-          maxWidth: 540,
+          maxWidth: 600,
           marginBottom: 40,
         }}
       >
@@ -82,29 +82,10 @@ export default function Hero({ onNav }) {
 
       <div
         ref={ctasRef}
-        style={{ display: 'flex', gap: 16, alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}
+        style={{ display: 'flex', gap: 16, alignItems: 'center', justifyContent: 'center' }}
       >
-        <button onClick={() => onNav('how-it-works')} className="btn btn--dark">
-          See How It Works
-        </button>
-        <button
-          onClick={() => onNav('demo')}
-          style={{
-            background: 'none',
-            border: 'none',
-            fontFamily: 'var(--font-ui)',
-            fontSize: 13,
-            fontWeight: 400,
-            color: '#1a1a1a',
-            textDecoration: 'underline',
-            cursor: 'pointer',
-            transition: 'color 120ms',
-            padding: '14px 8px',
-          }}
-          onMouseEnter={e => e.currentTarget.style.color = '#553d97'}
-          onMouseLeave={e => e.currentTarget.style.color = '#1a1a1a'}
-        >
-          Talk to Our Team →
+        <button onClick={() => onNav('demo')} className="btn btn--dark">
+          Get a Demo
         </button>
       </div>
 

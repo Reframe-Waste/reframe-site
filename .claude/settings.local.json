@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "WebFetch(domain:reframe-waste.github.io)",
+      "Bash(gh run *)",
+      "Bash(where gh *)",
+      "PowerShell(gh run *)",
+      "PowerShell(Get-Command *)",
+      "PowerShell(& \"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" run list --repo Reframe-Waste/reframe-site --limit 5)",
+      "PowerShell(Invoke-WebRequest -Uri \"https://reframe-waste.github.io/reframe-site/\" -UseBasicParsing | Select-Object -ExpandProperty Content)",
+      "PowerShell(Start-Sleep -Seconds 5; & \"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" run list --repo Reframe-Waste/reframe-site --limit 3)"
+    ]
+  }
+}

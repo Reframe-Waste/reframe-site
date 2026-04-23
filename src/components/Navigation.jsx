@@ -12,7 +12,7 @@ const NAV_ITEMS = [
   { id: 'faq',          label: 'FAQ' },
 ];
 
-export default function Navigation({ onNav }) {
+export default function Navigation({ onNav, activeSection }) {
   const navRef = useRef();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -68,7 +68,7 @@ export default function Navigation({ onNav }) {
         >
         <div style={{ display: 'flex', alignItems: 'center', minWidth: 0 }}>
           <button
-            onClick={() => handleNav('hero')}
+            onClick={() => { handleNav('hero'); history.replaceState(null, '', window.location.pathname); }}
             style={{
               background: 'none',
               border: 'none',
@@ -91,7 +91,7 @@ export default function Navigation({ onNav }) {
           className="nav-links-desktop"
         >
           {NAV_ITEMS.map((item) => (
-            <NavLink key={item.id} label={item.label} onClick={() => handleNav(item.id)} />
+            <NavLink key={item.id} label={item.label} active={activeSection === item.id} onClick={() => handleNav(item.id)} />
           ))}
         </div>
 
@@ -186,7 +186,7 @@ export default function Navigation({ onNav }) {
   );
 }
 
-function NavLink({ label, onClick }) {
+function NavLink({ label, onClick, active }) {
   const [hovered, setHovered] = useState(false);
   return (
     <button
@@ -200,7 +200,7 @@ function NavLink({ label, onClick }) {
         fontSize: 12,
         fontWeight: 700,
         textTransform: 'uppercase',
-        color: hovered ? '#553d97' : '#1a1a1a',
+        color: active || hovered ? '#553d97' : '#1a1a1a',
         padding: '12px 10px',
         display: 'flex',
         alignItems: 'center',

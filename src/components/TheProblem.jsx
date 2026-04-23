@@ -128,9 +128,8 @@ export default function TheProblem() {
 
 function ContaminationDiagram() {
   const bars = [
-    { label: 'National average contamination estimate', pct: 17, color: '#bfbfbf', textColor: 'var(--ink)' },
-    { label: 'Observed in high-contamination programs', pct: 40, color: 'var(--purple)', textColor: 'var(--white)' },
-    { label: 'Households driving the bulk of contamination', pct: 23, color: 'var(--ink)', textColor: 'var(--white)' },
+    { label: 'of households', pct: 23, color: 'var(--ink)', textColor: 'var(--white)' },
+    { label: 'of contamination-related cost', pct: 70, color: 'var(--purple)', textColor: 'var(--white)' },
   ];
 
   const barsRef = useRef();
