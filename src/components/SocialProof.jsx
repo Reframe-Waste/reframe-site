@@ -2,34 +2,28 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+const LOGO_HEIGHT = 80;
+
 const PARTNERS = [
   {
     name: 'City of Tucson',
     kind: 'Municipality',
     logo: `${import.meta.env.BASE_URL}assets/partners/city-of-tucson.jpg`,
-    logoWidth: 250,
-    logoHeight: 64,
   },
   {
     name: 'Waste Connections',
     kind: 'Hauler',
     logo: `${import.meta.env.BASE_URL}assets/partners/waste-connections.png`,
-    logoWidth: 230,
-    logoHeight: 64,
   },
   {
     name: 'Maricopa Association of Governments',
     kind: 'Regional Body',
     logo: `${import.meta.env.BASE_URL}assets/partners/mag-vertical.png`,
-    logoWidth: 170,
-    logoHeight: 118,
   },
   {
     name: 'Town of Queen Creek, Arizona',
     kind: 'Municipality',
     logo: `${import.meta.env.BASE_URL}assets/partners/waste-connections.svg`,
-    logoWidth: 240,
-    logoHeight: 64,
   },
 ];
 
@@ -99,9 +93,9 @@ export default function SocialProof() {
                 src={p.logo}
                 alt={p.name}
                 style={{
-                  width: '100%',
-                  maxWidth: p.logoWidth,
-                  height: p.logoHeight,
+                  height: LOGO_HEIGHT,
+                  width: 'auto',
+                  maxWidth: '100%',
                   objectFit: 'contain',
                   objectPosition: 'center',
                 }}

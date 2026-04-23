@@ -74,24 +74,10 @@ export default function Hero({ onNav }) {
           fontSize: 20,
           color: '#1a1a1a',
           maxWidth: 540,
-          marginBottom: 16,
-        }}
-      >
-        Reframe mounts AI-powered cameras on your collection trucks. We identify contamination, map every route, and show you exactly which addresses need attention. No driver input. No manual audits.
-      </p>
-
-      <p
-        ref={supportRef}
-        style={{
-          fontFamily: 'var(--font-body)',
-          fontStyle: 'italic',
-          fontSize: 15,
-          color: '#757575',
-          maxWidth: 520,
           marginBottom: 40,
         }}
       >
-        Live in Queen Creek, Arizona since August. Our trucks have flagged 25,000 contaminated services across 15,000 residential customers -- without a single manual audit.
+        Reframe mounts AI cameras on your collection trucks, identifies contamination, maps every route, and shows you which addresses need attention. No driver input. No manual audits.
       </p>
 
       <div
