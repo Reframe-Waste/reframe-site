@@ -101,7 +101,7 @@ export default function SocialProof() {
               />
               <span style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: 9,
+                fontSize: 'var(--text-xs)',
                 textTransform: 'uppercase',
                 color: 'var(--gray-400)',
               }}>

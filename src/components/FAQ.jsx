@@ -150,7 +150,7 @@ function FAQItem({ q, a, isLast }) {
       >
         <span style={{
           fontFamily: 'var(--font-ui)',
-          fontSize: 16,
+          fontSize: 'var(--text-base)',
           fontWeight: 700,
           color: 'inherit',
           transition: 'color 120ms',
@@ -161,7 +161,7 @@ function FAQItem({ q, a, isLast }) {
           ref={arrowRef}
           style={{
             fontFamily: 'var(--font-mono)',
-            fontSize: 20,
+            fontSize: 'var(--text-lg)',
             color: 'var(--purple)',
             flexShrink: 0,
             display: 'block',
@@ -178,7 +178,7 @@ function FAQItem({ q, a, isLast }) {
       >
         <p style={{
           fontFamily: 'var(--font-body)',
-          fontSize: 16,
+          fontSize: 'var(--text-base)',
           color: 'var(--caption)',
           paddingBottom: 'var(--space-4)',
           maxWidth: 720,

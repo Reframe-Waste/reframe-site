@@ -9,7 +9,7 @@ export function DarkLogo() {
       <span
         style={{
           fontFamily: 'var(--font-mono)',
-          fontSize: 12,
+          fontSize: 'var(--text-sm)',
           fontWeight: 700,
           textTransform: 'uppercase',
           color: 'var(--black)',
@@ -37,7 +37,7 @@ export function LightLogo() {
       <span
         style={{
           fontFamily: 'var(--font-mono)',
-          fontSize: 13,
+          fontSize: 'var(--text-sm)',
           fontWeight: 700,
           textTransform: 'uppercase',
           color: 'var(--white)',

@@ -132,7 +132,7 @@ export default function OurProduct() {
               className="product-subhead"
               style={{
                 fontFamily: 'var(--font-body)',
-                fontSize: 17,
+                fontSize: 'var(--text-base)',
                 color: 'var(--ink)',
                 marginBottom: 'var(--space-3)',
                 maxWidth: 440,
@@ -152,7 +152,7 @@ export default function OurProduct() {
             >
               <span style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: 10,
+                fontSize: 'var(--text-xs)',
                 fontWeight: 700,
                 textTransform: 'uppercase',
                 color: 'var(--caption)',
@@ -163,7 +163,7 @@ export default function OurProduct() {
               </span>
               <ul style={{
                 fontFamily: 'var(--font-body)',
-                fontSize: 14,
+                fontSize: 'var(--text-md)',
                 color: 'var(--caption)',
                 listStylePosition: 'inside',
                 padding: 0,
@@ -175,7 +175,7 @@ export default function OurProduct() {
               </ul>
               <p style={{
                 fontFamily: 'var(--font-body)',
-                fontSize: 14,
+                fontSize: 'var(--text-md)',
                 color: 'var(--caption)',
               }}>
                 Draws no power from the truck. Requires no changes to driver operations.
@@ -206,7 +206,7 @@ export default function OurProduct() {
               >
                 <span style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: 11,
+                  fontSize: 'var(--text-sm)',
                   fontWeight: 700,
                   textTransform: 'uppercase',
                   color: 'var(--purple)',
@@ -217,7 +217,7 @@ export default function OurProduct() {
                 </span>
                 <p style={{
                   fontFamily: 'var(--font-body)',
-                  fontSize: 15,
+                  fontSize: 'var(--text-base)',
                   color: 'var(--ink)',
                 }}>
                   {feature.body}
@@ -291,7 +291,7 @@ function ProductUnitGraphic() {
       <div style={{ marginTop: 'var(--space-3)' }}>
         <span style={{
           fontFamily: 'var(--font-mono)',
-          fontSize: 9,
+          fontSize: 'var(--text-xs)',
           textTransform: 'uppercase',
           color: 'var(--gray-600)',
           display: 'block',
@@ -302,7 +302,7 @@ function ProductUnitGraphic() {
         <span style={{
           fontFamily: 'var(--font-body)',
           fontStyle: 'italic',
-          fontSize: 12,
+          fontSize: 'var(--text-sm)',
           color: 'var(--gray-700)',
         }}>
           Truck-mounted AI camera system

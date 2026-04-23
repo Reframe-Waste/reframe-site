@@ -142,7 +142,7 @@ export default function WhoItsFor() {
                   padding: 'var(--space-3) var(--page-padding)',
                   marginBottom: isActive ? -1 : 0,
                   fontFamily: 'var(--font-mono)',
-                  fontSize: 12,
+                  fontSize: 'var(--text-sm)',
                   fontWeight: 700,
                   textTransform: 'uppercase',
                   letterSpacing: '1px',
@@ -189,7 +189,7 @@ export default function WhoItsFor() {
                 key={i}
                 style={{
                   fontFamily: 'var(--font-body)',
-                  fontSize: 16,
+                  fontSize: 'var(--text-base)',
                   color: 'var(--ink)',
                   marginBottom: 'var(--space-3)',
                 }}
@@ -209,7 +209,7 @@ export default function WhoItsFor() {
               <p style={{
                 fontFamily: 'var(--font-body)',
                 fontStyle: 'italic',
-                fontSize: 15,
+                fontSize: 'var(--text-base)',
                 color: 'var(--caption)',
               }}>
                 {data.quote}
@@ -222,7 +222,7 @@ export default function WhoItsFor() {
             <span className="eyebrow eyebrow--caption" style={{ marginBottom: 'var(--space-3)', display: 'block' }}>
               {data.bulletsLabel}
             </span>
-            <BulletList items={data.bullets} font="body" fontSize={15} separator />
+            <BulletList items={data.bullets} font="body" fontSize="var(--text-base)" separator />
           </div>
         </div>
 

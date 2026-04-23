@@ -75,7 +75,7 @@ export default function Footer() {
           <LightLogo />
           <span style={{
             fontFamily: 'var(--font-body)',
-            fontSize: 12,
+            fontSize: 'var(--text-sm)',
             color: 'var(--gray-300)',
             fontStyle: 'italic',
           }}>
@@ -95,7 +95,7 @@ export default function Footer() {
             <div key={col.head} className="footer-col">
               <div style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: 10,
+                fontSize: 'var(--text-xs)',
                 fontWeight: 700,
                 textTransform: 'uppercase',
                 color: 'var(--white)',
@@ -128,7 +128,7 @@ export default function Footer() {
         }}>
           <span style={{
             fontFamily: 'var(--font-mono)',
-            fontSize: 10,
+            fontSize: 'var(--text-xs)',
             color: 'var(--gray-300)',
             textTransform: 'uppercase',
           }}>
@@ -138,7 +138,7 @@ export default function Footer() {
             href="mailto:hello@reframewaste.com"
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: 10,
+              fontSize: 'var(--text-xs)',
               color: 'var(--gray-200)',
               textDecoration: 'underline',
               textTransform: 'uppercase',
@@ -165,7 +165,7 @@ function FooterLink({ label, href, id, onNav }) {
         style={{
           display: 'block',
           fontFamily: 'var(--font-ui)',
-          fontSize: 13,
+          fontSize: 'var(--text-sm)',
           color: hovered ? 'var(--purple-bright)' : 'var(--gray-400)',
           textDecoration: 'none',
           marginBottom: 'var(--space-1)',
@@ -187,7 +187,7 @@ function FooterLink({ label, href, id, onNav }) {
         background: 'none',
         border: 'none',
         fontFamily: 'var(--font-ui)',
-        fontSize: 13,
+        fontSize: 'var(--text-sm)',
         color: hovered ? 'var(--purple-bright)' : 'var(--gray-400)',
         textDecoration: 'none',
         marginBottom: 'var(--space-1)',

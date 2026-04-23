@@ -144,7 +144,7 @@ export default function HowItWorks({ onNav }) {
                 className="step-num"
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 64,
+                  fontSize: 'var(--text-4xl)',
                   fontWeight: 400,
                   color: 'var(--hairline)',
                   lineHeight: 1,
@@ -157,7 +157,7 @@ export default function HowItWorks({ onNav }) {
                 <h3
                   style={{
                     fontFamily: 'var(--font-ui)',
-                    fontSize: 16,
+                    fontSize: 'var(--text-base)',
                     fontWeight: 700,
                     color: 'var(--ink)',
                     marginBottom: 'var(--space-1-5)',
@@ -168,7 +168,7 @@ export default function HowItWorks({ onNav }) {
                 <p
                   style={{
                     fontFamily: 'var(--font-body)',
-                    fontSize: 14,
+                    fontSize: 'var(--text-md)',
                     color: 'var(--ink)',
                     marginBottom: 0,
                     maxWidth: 520,
@@ -186,7 +186,7 @@ export default function HowItWorks({ onNav }) {
                   paddingTop: 'var(--space-1)',
                 }}
               >
-                <BulletList items={step.detail} font="ui" fontSize={13} />
+                <BulletList items={step.detail} font="ui" fontSize="var(--text-sm)" />
               </div>
             </div>
           ))}

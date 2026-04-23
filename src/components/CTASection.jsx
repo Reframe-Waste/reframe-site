@@ -55,7 +55,7 @@ export default function CTASection() {
 
   const inputStyle = {
     fontFamily: 'var(--font-ui)',
-    fontSize: 15,
+    fontSize: 'var(--text-base)',
     color: 'var(--ink)',
     border: 'none',
     borderBottom: '2px solid transparent',
@@ -73,7 +73,7 @@ export default function CTASection() {
 
   const labelStyle = {
     fontFamily: 'var(--font-mono)',
-    fontSize: 10,
+    fontSize: 'var(--text-xs)',
     fontWeight: 700,
     textTransform: 'uppercase',
     color: 'var(--ink)',
@@ -94,7 +94,7 @@ export default function CTASection() {
           </span>
           <h2 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 52,
+            fontSize: 'var(--text-3xl)',
             fontWeight: 400,
             color: 'var(--white)',
             marginBottom: 'var(--space-3)',
@@ -103,7 +103,7 @@ export default function CTASection() {
           </h2>
           <p style={{
             fontFamily: 'var(--font-body)',
-            fontSize: 18,
+            fontSize: 'var(--text-lg)',
             color: 'var(--gray-400)',
             maxWidth: 480,
             margin: '0 auto var(--space-5)',
@@ -148,7 +148,6 @@ export default function CTASection() {
             padding: 'var(--space-9) var(--page-padding)',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'space-between',
             background: 'var(--white)',
             borderRight: '1px solid var(--black)',
           }}
@@ -171,7 +170,7 @@ export default function CTASection() {
             </h2>
             <p style={{
               fontFamily: 'var(--font-body)',
-              fontSize: 17,
+              fontSize: 'var(--text-base)',
               color: 'var(--caption)',
               marginBottom: 0,
               maxWidth: 420,
@@ -182,7 +181,7 @@ export default function CTASection() {
           </div>
 
           <div style={{ borderTop: '1px solid var(--gray-400)', paddingTop: 'var(--space-4)' }}>
-            <BulletList items={DEMO_ITEMS} font="ui" fontSize={14} />
+            <BulletList items={DEMO_ITEMS} font="ui" fontSize="var(--text-md)" />
           </div>
         </div>
 
@@ -200,7 +199,7 @@ export default function CTASection() {
         >
           <span style={{
             fontFamily: 'var(--font-mono)',
-            fontSize: 11,
+            fontSize: 'var(--text-sm)',
             fontWeight: 700,
             textTransform: 'uppercase',
             color: 'var(--caption)',
@@ -274,14 +273,14 @@ export default function CTASection() {
           <button
             onClick={() => setSubmitted(true)}
             className="btn btn--dark"
-            style={{ width: '100%', textAlign: 'center', fontSize: 14 }}
+            style={{ width: '100%', textAlign: 'center', fontSize: 'var(--text-md)' }}
           >
             Schedule a Demo →
           </button>
 
           <p style={{
             fontFamily: 'var(--font-ui)',
-            fontSize: 10,
+            fontSize: 'var(--text-xs)',
             textTransform: 'uppercase',
             color: 'var(--gray-700)',
             marginTop: 'var(--space-2)',

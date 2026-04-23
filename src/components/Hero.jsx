@@ -71,7 +71,7 @@ export default function Hero({ onNav }) {
         ref={subRef}
         style={{
           fontFamily: 'var(--font-body)',
-          fontSize: 20,
+          fontSize: 'var(--text-lg)',
           color: 'var(--ink)',
           maxWidth: 600,
           marginBottom: 'var(--space-5)',
@@ -134,7 +134,7 @@ export default function Hero({ onNav }) {
         }}>
           <span style={{
             fontFamily: 'var(--font-mono)',
-            fontSize: 10,
+            fontSize: 'var(--text-xs)',
             textTransform: 'uppercase',
             color: 'var(--caption)',
           }}>

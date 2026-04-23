@@ -88,6 +88,17 @@
   --font-ui: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 
+  /* ── Type scale (rem — scales with html font-size) ─────────── */
+  --text-xs:   0.625rem;  /* 10px — captions, footnotes */
+  --text-sm:   0.75rem;   /* 12px — eyebrows, kickers, labels */
+  --text-md:   0.875rem;  /* 14px — secondary body */
+  --text-base: 1rem;      /* 16px — body */
+  --text-lg:   1.25rem;   /* 20px — body large */
+  --text-xl:   1.375rem;  /* 22px — small display */
+  --text-2xl:  1.75rem;   /* 28px — sub-display */
+  --text-3xl:  3.25rem;   /* 52px — display medium */
+  --text-4xl:  4rem;      /* 64px — large numerals */
+
   /* ── Spacing scale (multiples of 0.5rem = 8px base) ───────── */
   --space-1:   0.5rem;   /*   8px */
   --space-1-5: 0.75rem;  /*  12px */
@@ -175,7 +186,7 @@ button {
 /* ─── EYEBROW ─────────────────────────────────────────────── */
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--text-sm);
   font-weight: 700;
   text-transform: uppercase;
   display: block;
@@ -196,7 +207,7 @@ button {
 
 .ribbon__label {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--text-sm);
   font-weight: 700;
   text-transform: uppercase;
   color: var(--white);
@@ -213,11 +224,11 @@ button {
 /* ─── BUTTONS ─────────────────────────────────────────────── */
 .btn {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--text-sm);
   font-weight: 700;
   text-transform: uppercase;
   border-radius: 0;
-  padding: 14px 32px;
+  padding: var(--space-2) var(--space-4);
   border: 2px solid var(--black);
   cursor: pointer;
   transition: background 150ms, color 150ms, border-color 150ms;
@@ -260,7 +271,7 @@ button {
 /* ─── INLINE LINK ─────────────────────────────────────────── */
 .link-arrow {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--text-sm);
   font-weight: 700;
   text-transform: uppercase;
   color: var(--ink);
@@ -309,7 +320,7 @@ button {
 
 .img-placeholder__label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-xs);
   text-transform: uppercase;
   color: var(--gray-400);
   text-align: center;
@@ -317,6 +328,7 @@ button {
 
 /* ─── RESPONSIVE ──────────────────────────────────────────── */
 @media (max-width: 1023px) {
+  html { font-size: 14px; }
   :root {
     --page-padding: var(--space-4);         /* 32px */
     --section-pad-y: var(--space-8);        /* 64px */
@@ -325,6 +337,7 @@ button {
 }
 
 @media (max-width: 767px) {
+  html { font-size: 12px; }
   :root {
     --page-padding: var(--space-3);         /* 24px */
     --section-pad-y: var(--space-6);        /* 48px */

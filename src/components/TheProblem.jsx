@@ -90,7 +90,7 @@ export default function TheProblem() {
           <div className="problem-body" style={{ maxWidth: 460 }}>
             <p style={{
               fontFamily: 'var(--font-body)',
-              fontSize: 17,
+              fontSize: 'var(--text-base)',
               color: 'var(--ink)',
               marginBottom: 'var(--space-2)',
             }}>
@@ -98,7 +98,7 @@ export default function TheProblem() {
             </p>
             <p style={{
               fontFamily: 'var(--font-body)',
-              fontSize: 17,
+              fontSize: 'var(--text-base)',
               color: 'var(--ink)',
             }}>
               The problem isn't awareness. It's visibility. Reframe gives you address-level data on every route, every collection day, so you can focus on the 10% that actually matters.
@@ -157,7 +157,7 @@ function ContaminationDiagram() {
       <div style={{ marginBottom: 'var(--space-4)' }}>
         <span style={{
           fontFamily: 'var(--font-mono)',
-          fontSize: 14,
+          fontSize: 'var(--text-md)',
           fontWeight: 700,
           textTransform: 'uppercase',
           color: 'var(--ink)',
@@ -169,7 +169,7 @@ function ContaminationDiagram() {
         <span style={{
           fontFamily: 'var(--font-body)',
           fontStyle: 'italic',
-          fontSize: 13,
+          fontSize: 'var(--text-sm)',
           color: 'var(--gray-400)',
         }}>
           Residential single-stream recycling, U.S.
@@ -179,7 +179,7 @@ function ContaminationDiagram() {
         <div key={i} style={{ marginBottom: i < bars.length - 1 ? 'var(--space-3)' : 0 }}>
           <div style={{
             fontFamily: 'var(--font-mono)',
-            fontSize: 10,
+            fontSize: 'var(--text-xs)',
             textTransform: 'uppercase',
             color: 'var(--caption)',
             marginBottom: 'var(--space-1)',
@@ -206,7 +206,7 @@ function ContaminationDiagram() {
             >
               <span style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 22,
+                fontSize: 'var(--text-xl)',
                 color: bar.textColor,
               }}>
                 {bar.pct}%
@@ -220,7 +220,7 @@ function ContaminationDiagram() {
         paddingTop: 'var(--space-2)',
         borderTop: '1px solid var(--hairline)',
         fontFamily: 'var(--font-mono)',
-        fontSize: 9,
+        fontSize: 'var(--text-xs)',
         textTransform: 'uppercase',
         color: 'var(--gray-400)',
       }}>

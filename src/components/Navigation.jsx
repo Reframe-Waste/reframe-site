@@ -99,7 +99,7 @@ export default function Navigation({ onNav, activeSection }) {
           <button
             onClick={() => handleNav('demo')}
             className="btn btn--dark nav-demo-desktop"
-            style={{ padding: 'var(--space-1) var(--space-3)', fontSize: 12 }}
+            style={{ padding: 'var(--space-1) var(--space-3)', fontSize: 'var(--text-sm)' }}
           >
             Get a Demo
           </button>
@@ -148,7 +148,7 @@ export default function Navigation({ onNav, activeSection }) {
                 borderBottom: '1px solid var(--hairline)',
                 padding: 'var(--space-2) var(--page-padding)',
                 fontFamily: 'var(--font-mono)',
-                fontSize: 11,
+                fontSize: 'var(--text-sm)',
                 fontWeight: 700,
                 textTransform: 'uppercase',
                 color: 'var(--ink)',
@@ -197,7 +197,7 @@ function NavLink({ label, onClick, active }) {
         background: 'none',
         border: 'none',
         fontFamily: 'var(--font-ui)',
-        fontSize: 12,
+        fontSize: 'var(--text-sm)',
         fontWeight: 700,
         textTransform: 'uppercase',
         color: active || hovered ? 'var(--purple)' : 'var(--ink)',

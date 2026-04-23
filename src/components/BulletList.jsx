@@ -1,4 +1,4 @@
-export default function BulletList({ items, font = 'ui', fontSize = 14, separator = false }) {
+export default function BulletList({ items, font = 'ui', fontSize = 'var(--text-md)', separator = false }) {
   return (
     <>
       {items.map((item, i) => {

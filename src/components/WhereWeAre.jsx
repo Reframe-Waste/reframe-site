@@ -100,7 +100,7 @@ export default function WhereWeAre() {
                 className="stat-label"
                 style={{
                   fontFamily: 'var(--font-body)',
-                  fontSize: 14,
+                  fontSize: 'var(--text-md)',
                   color: 'var(--caption)',
                 }}
               >
@@ -162,7 +162,7 @@ export default function WhereWeAre() {
                 className="where-body-text"
                 style={{
                   fontFamily: 'var(--font-body)',
-                  fontSize: 16,
+                  fontSize: 'var(--text-base)',
                   color: 'var(--ink)',
                 }}
               >
@@ -188,7 +188,7 @@ export default function WhereWeAre() {
                 className="eyebrow"
                 style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: 10,
+                  fontSize: 'var(--text-xs)',
                   textTransform: 'uppercase',
                   color: 'var(--purple)',
                   display: 'block',
@@ -200,7 +200,7 @@ export default function WhereWeAre() {
               <h3
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 28,
+                  fontSize: 'var(--text-2xl)',
                   fontWeight: 400,
                   color: 'var(--ink)',
                   marginBottom: 'var(--space-1-5)',
@@ -212,7 +212,7 @@ export default function WhereWeAre() {
               <p
                 style={{
                   fontFamily: 'var(--font-body)',
-                  fontSize: 15,
+                  fontSize: 'var(--text-base)',
                   color: 'var(--gray-700)',
                   maxWidth: 700,
                   marginBottom: 'var(--space-1-5)',
@@ -223,7 +223,7 @@ export default function WhereWeAre() {
               <p
                 style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: 10,
+                  fontSize: 'var(--text-xs)',
                   textTransform: 'uppercase',
                   color: 'var(--caption)',
                 }}
@@ -271,7 +271,7 @@ function TimelineBlock() {
       <span
         style={{
           fontFamily: 'var(--font-mono)',
-          fontSize: 11,
+          fontSize: 'var(--text-sm)',
           fontWeight: 700,
           textTransform: 'uppercase',
           color: 'var(--caption)',
@@ -299,7 +299,7 @@ function TimelineBlock() {
           <span
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: 10,
+              fontSize: 'var(--text-xs)',
               fontWeight: 700,
               textTransform: 'uppercase',
               color: 'var(--purple)',
@@ -311,7 +311,7 @@ function TimelineBlock() {
           <span
             style={{
               fontFamily: 'var(--font-body)',
-              fontSize: 14,
+              fontSize: 'var(--text-md)',
               color: 'var(--ink)',
             }}
           >
