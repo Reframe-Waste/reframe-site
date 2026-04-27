@@ -98,7 +98,7 @@ export default function OurProduct() {
             }}
           >
             <img
-              src={`${import.meta.env.BASE_URL}assets/product-zoomed.png`}
+              src={`${import.meta.env.BASE_URL}assets/product-zoomed.webp`}
               alt="Reframe unit mounted on a waste collection truck"
               style={{
                 width: '100%',

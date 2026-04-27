@@ -90,7 +90,7 @@ export default function TheProblem() {
           }}
         >
           <img
-            src={`${import.meta.env.BASE_URL}assets/dashboard2.png`}
+            src={`${import.meta.env.BASE_URL}assets/dashboard2.webp`}
             alt="Reframe dashboard showing contamination data"
             style={{
               width: '100%',
