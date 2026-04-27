@@ -5,7 +5,6 @@ export default function Hero({ onNav }) {
   const containerRef = useRef();
   const eyebrowRef = useRef();
   const subRef = useRef();
-  const supportRef = useRef();
   const ctasRef = useRef();
   const visualRef = useRef();
 
@@ -21,8 +20,7 @@ export default function Hero({ onNav }) {
           ease: 'power4.out',
         }, 0.35)
         .from(subRef.current, { y: 16, opacity: 0, duration: 0.8 }, 0.85)
-        .from(supportRef.current, { y: 12, opacity: 0, duration: 0.7 }, 1.0)
-        .from(ctasRef.current.children, { y: 12, opacity: 0, duration: 0.6, stagger: 0.1 }, 1.1)
+        .from(ctasRef.current.children, { y: 12, opacity: 0, duration: 0.6, stagger: 0.1 }, 1.0)
         .from(visualRef.current, { opacity: 0, duration: 1.0 }, 1.2);
     }, containerRef);
 
@@ -64,7 +62,7 @@ export default function Hero({ onNav }) {
           marginBottom: 'var(--space-4)',
         }}
       >
-        See what's in every bin on every route. Automatically.
+        Say goodbye to manual cart audits.
       </h1>
 
       <p
@@ -102,7 +100,7 @@ export default function Hero({ onNav }) {
         }}
       >
         <img
-          src={`${import.meta.env.BASE_URL}assets/dashboard.webp`}
+          src={`${import.meta.env.BASE_URL}assets/dashboard1.png`}
           alt="Reframe dashboard showing contamination map across service area"
           style={{
             width: '100%',
@@ -138,7 +136,7 @@ export default function Hero({ onNav }) {
             textTransform: 'uppercase',
             color: 'var(--caption)',
           }}>
-            Queen Creek, AZ · Live Dashboard · 15,000 Residential Customers
+            Queen Creek, AZ · Live Dashboard
           </span>
         </div>
       </div>

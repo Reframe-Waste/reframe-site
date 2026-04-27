@@ -3,43 +3,43 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import BulletList from './BulletList.jsx';
 
+const STATS = [
+  { display: '26,315', label: 'Service addresses in QC' },
+  { display: '173,464', label: 'Automated audits' },
+  { display: '40,928', label: 'Contaminated services' },
+  { display: '537', label: 'Notices sent' },
+];
+
 const AUDIENCES = {
   municipalities: {
-    tabLabel: 'For Municipalities',
-    eyebrow: 'For Municipalities',
-    headline: 'See every route, every household, every collection day.',
+    tabLabel: 'Municipalities',
     body: [
-      "In Queen Creek, we've audited 14,497 residential customers and identified over 25,000 contaminated services. The town's inspectors get a daily contamination digest instead of driving routes themselves. 537 automated notices have gone out to residents. That outreach didn't exist before because the data didn't exist.",
+      "The Town of Queen Creek has stopped doing manual inspections.",
     ],
     bulletsLabel: 'What that means for your program',
     bullets: [
-      'Meet diversion targets with address-level data instead of estimates',
-      'Comply with state mandates like SB1383 with automated contamination documentation',
-      'Access EPR funding that can offset the full cost of deploying Reframe',
-      'Defend your recycling program to council with real data behind every recommendation',
-      'Replace manual inspections with automated daily reporting',
+      'Offload inspection requirements',
+      'Do it for free with full EPR reimbursement',
+      'Mitigate rate increases with cleaner, cheaper recycling',
+      'Meet your diversion goals and maximize commodity revenue',
     ],
-    quote: "Your trucks don't change. Your drivers don't change. You see everything you couldn't see before.",
-    quoteAccent: 'var(--purple)',
   },
   haulers: {
-    tabLabel: 'For Private Haulers',
-    eyebrow: 'For Private Haulers',
-    headline: 'Show your municipal clients what their contract actually delivers.',
+    tabLabel: 'Private Haulers',
     body: [
-      'When you\'re bidding on a municipal contract, "we have cameras on our trucks" is table stakes. Contamination data, route verification, and resident outreach as part of your service is a competitive advantage.',
-      "Reframe is live on Waste Connections trucks in Queen Creek right now. We've replaced their manual audit obligation with automatic documentation that satisfies the city's requirements.",
+      'Do you want to be competitive in your next bid?',
+      "Other haulers are going to show up with real data, automated inspections, and targeted education that makes them a partner, not just a hauler.",
+      'Reframe makes you that partner. Show your clients what their contract actually delivers.',
     ],
     bulletsLabel: 'What that means for your contract',
     bullets: [
-      'Replace time-intensive manual audits with automatic, defensible documentation',
-      'Identify overages and non-conforming material with a clear data trail',
-      'Demonstrate service quality to municipal clients without relying on driver self-reporting',
-      'Use contamination data to support contract renegotiation or overage billing',
-      'Resolve missed collection disputes with GPS-verified route data from every run',
+      'Be competitive on the next RFP.',
+      'Own a MRF? Reduce cost, increase yield, add to your rebates.',
+      'Flag overages and set-outs with AI.',
+      'Help your customers reach their sustainability goals.',
+      'Offload auditing responsibilities.',
+      'Get fully reimbursed in EPR states.',
     ],
-    quote: 'Live on Waste Connections trucks in Queen Creek. Manual audit obligation replaced with automatic documentation.',
-    quoteAccent: 'var(--black)',
   },
 };
 
@@ -57,14 +57,6 @@ export default function WhoItsFor() {
         duration: 0.6,
         ease: 'power2.out',
         scrollTrigger: { trigger: ribbonRef.current, start: 'top 90%', once: true },
-      });
-
-      gsap.from('.wif-headline .headline-inner', {
-        y: '110%',
-        duration: 0.9,
-        stagger: 0.1,
-        ease: 'power4.out',
-        scrollTrigger: { trigger: '.wif-headline', start: 'top 85%', once: true },
       });
     }, sectionRef);
 
@@ -93,37 +85,12 @@ export default function WhoItsFor() {
     >
       <div style={{ maxWidth: 'var(--max-width)', margin: '0 auto' }}>
 
-        {/* Header */}
-        <div style={{ padding: 'var(--section-pad-y) var(--page-padding) 0' }}>
-          <span className="eyebrow eyebrow--caption" style={{ marginBottom: 'var(--space-3)' }}>
-            Who It's For
-          </span>
-          <h2
-            className="wif-headline"
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(32px, 3.2vw, 48px)',
-              fontWeight: 400,
-              color: 'var(--ink)',
-              maxWidth: 560,
-              marginBottom: 0,
-            }}
-          >
-            {['Built for municipalities', 'and haulers.'].map((line, i) => (
-              <div key={i} className="headline-mask">
-                <span className="headline-inner">{line}</span>
-              </div>
-            ))}
-          </h2>
-        </div>
-
         {/* Tabs */}
         <div
           ref={ribbonRef}
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
-            marginTop: 'var(--space-5)',
           }}
         >
           {Object.entries(AUDIENCES).map(([key, cfg], i) => {
@@ -171,50 +138,71 @@ export default function WhoItsFor() {
         >
           {/* Left: narrative */}
           <div>
-            <span className="eyebrow eyebrow--purple" style={{ marginBottom: 'var(--space-2)' }}>
-              {data.eyebrow}
-            </span>
-            <h3 style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(22px, 2vw, 28px)',
-              fontWeight: 400,
-              color: 'var(--ink)',
-              marginBottom: 'var(--space-2)',
-              maxWidth: 440,
-            }}>
-              {data.headline}
-            </h3>
-            {data.body.map((p, i) => (
-              <p
-                key={i}
-                style={{
-                  fontFamily: 'var(--font-body)',
-                  fontSize: 'var(--text-base)',
-                  color: 'var(--ink)',
-                  marginBottom: 'var(--space-3)',
-                }}
-              >
-                {p}
-              </p>
-            ))}
+            {active === 'municipalities' && (
+              <>
+                {data.body.map((p, i) => (
+                  <p
+                    key={i}
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize: 'var(--text-base)',
+                      color: 'var(--ink)',
+                      marginBottom: 'var(--space-3)',
+                    }}
+                  >
+                    {p}
+                  </p>
+                ))}
 
-            <div
-              style={{
-                background: 'var(--gray-50)',
-                padding: 'var(--space-3)',
-                borderLeft: `3px solid ${data.quoteAccent}`,
-                marginTop: 'var(--space-1-5)',
-              }}
-            >
-              <p style={{
-                fontFamily: 'var(--font-body)',
-                fontStyle: 'italic',
-                fontSize: 'var(--text-base)',
-                color: 'var(--caption)',
-              }}>
-                {data.quote}
-              </p>
-            </div>
+                {/* Stats grid */}
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: 'var(--space-3)',
+                  marginTop: 'var(--space-3)',
+                }}>
+                  {STATS.map((stat, i) => (
+                    <div key={i}>
+                      <div style={{
+                        fontFamily: 'var(--font-display)',
+                        fontSize: 'clamp(24px, 2.5vw, 36px)',
+                        fontWeight: 400,
+                        color: 'var(--ink)',
+                      }}>
+                        {stat.display}
+                      </div>
+                      <p style={{
+                        fontFamily: 'var(--font-body)',
+                        fontSize: 'var(--text-sm)',
+                        color: 'var(--caption)',
+                      }}>
+                        {stat.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {active === 'haulers' && (
+              <>
+                {data.body.map((p, i) => (
+                  <p
+                    key={i}
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize: i === 0 ? 'var(--text-lg)' : 'var(--text-base)',
+                      fontWeight: i === 0 ? 400 : 400,
+                      fontStyle: i === 0 ? 'italic' : 'normal',
+                      color: 'var(--ink)',
+                      marginBottom: 'var(--space-3)',
+                    }}
+                  >
+                    {p}
+                  </p>
+                ))}
+              </>
+            )}
           </div>
 
           {/* Right: bullets */}

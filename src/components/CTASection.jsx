@@ -1,19 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import BulletList from './BulletList.jsx';
-
-const DEMO_ITEMS = [
-  'Live dashboard walkthrough with real data, not a demo environment',
-  'Address-level contamination map from current deployments',
-  'Discussion of pilot scope: timeline, fleet size, and pricing',
-  'Most pilots launch within weeks of a signed agreement',
-];
 
 export default function CTASection() {
   const sectionRef = useRef();
   const bgRef = useRef();
-  const contentRef = useRef();
   const formRef = useRef();
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', org: '', fleet: '', message: '' });
@@ -30,19 +21,9 @@ export default function CTASection() {
         scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', once: true },
       });
 
-      gsap.from('.cta-content > *', {
-        opacity: 0,
-        y: 24,
-        duration: 0.7,
-        stagger: 0.12,
-        ease: 'power2.out',
-        delay: 0.4,
-        scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', once: true },
-      });
-
       gsap.from('.cta-form-panel', {
         opacity: 0,
-        x: 40,
+        y: 24,
         duration: 0.8,
         ease: 'power2.out',
         delay: 0.3,
@@ -114,7 +95,7 @@ export default function CTASection() {
             onClick={() => { setSubmitted(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             className="btn btn--ghost-white"
           >
-            ← Back to Top
+            &larr; Back to Top
           </button>
         </div>
       </section>
@@ -128,75 +109,23 @@ export default function CTASection() {
       className="section-border"
       style={{ overflow: 'hidden', position: 'relative' }}
     >
-      <div ref={bgRef} style={{ position: 'absolute', inset: 0, background: 'var(--white)', zIndex: 0 }} />
+      <div ref={bgRef} style={{ position: 'absolute', inset: 0, background: 'var(--gray-50)', zIndex: 0 }} />
 
       <div style={{
         position: 'relative',
         zIndex: 1,
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        maxWidth: 'var(--max-width)',
+        maxWidth: 640,
         margin: '0 auto',
-        minHeight: 640,
-      }}
-        className="cta-grid"
-      >
-        {/* Info panel */}
-        <div
-          className="cta-content"
-          style={{
-            padding: 'var(--space-9) var(--page-padding)',
-            display: 'flex',
-            flexDirection: 'column',
-            background: 'var(--white)',
-            borderRight: '1px solid var(--black)',
-          }}
-        >
-          <div>
-            <span className="eyebrow eyebrow--purple" style={{
-              display: 'block',
-              marginBottom: 'var(--space-3)',
-            }}>
-              See What Your Routes Actually Look Like
-            </span>
-            <h2 style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(32px, 3vw, 48px)',
-              fontWeight: 400,
-              marginBottom: 'var(--space-3)',
-              maxWidth: 440,
-            }}>
-              We'll show you the actual product dashboard with real collection data.
-            </h2>
-            <p style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: 'var(--text-base)',
-              color: 'var(--caption)',
-              marginBottom: 0,
-              maxWidth: 420,
-              paddingBottom: 'var(--space-6)',
-            }}>
-              No pitch deck. Just the product. From there, we'll talk about what a pilot looks like for your program.
-            </p>
-          </div>
+        padding: 'var(--space-9) var(--page-padding)',
+      }}>
+        <div className="cta-form-panel">
+          <span className="eyebrow eyebrow--purple" style={{
+            display: 'block',
+            marginBottom: 'var(--space-3)',
+          }}>
+            See What Your Routes Actually Look Like
+          </span>
 
-          <div style={{ borderTop: '1px solid var(--gray-400)', paddingTop: 'var(--space-4)' }}>
-            <BulletList items={DEMO_ITEMS} font="ui" fontSize="var(--text-md)" />
-          </div>
-        </div>
-
-        {/* Form panel */}
-        <div
-          ref={formRef}
-          className="cta-form-panel"
-          style={{
-            padding: 'var(--space-9) var(--page-padding)',
-            background: 'var(--gray-50)',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-          }}
-        >
           <span style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 'var(--text-sm)',
@@ -205,6 +134,7 @@ export default function CTASection() {
             color: 'var(--caption)',
             display: 'block',
             marginBottom: 'var(--space-4)',
+            marginTop: 'var(--space-6)',
           }}>
             Schedule a Demo
           </span>
@@ -275,7 +205,7 @@ export default function CTASection() {
             className="btn btn--dark"
             style={{ width: '100%', textAlign: 'center', fontSize: 'var(--text-md)' }}
           >
-            Schedule a Demo →
+            Schedule a Demo &rarr;
           </button>
 
           <p style={{
@@ -316,14 +246,6 @@ export default function CTASection() {
 
         .cta-input--textarea {
           min-height: 124px;
-        }
-
-        @media (max-width: 767px) {
-          .cta-grid { grid-template-columns: 1fr !important; }
-          .cta-content {
-            border-right: none !important;
-            border-bottom: 1px solid var(--black);
-          }
         }
       `}</style>
     </section>

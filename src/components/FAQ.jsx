@@ -5,27 +5,27 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 const QUESTIONS = [
   {
     q: "Does this require any changes to how our drivers operate?",
-    a: "No. Our product is fully touchless. It mounts on the truck, runs on its own solar-charged battery, and captures data automatically throughout the collection run. Drivers don't interact with it, don't manage an app, and don't need any training beyond knowing it's there.",
+    a: "No. Your drivers don't even need to know it's there.",
   },
   {
     q: "What exactly does the AI detect right now?",
-    a: "The current deployed model detects soft plastic bags in recycling bins. That's one of the most common contaminants and a major source of sorting machinery jams. We're building additional models for food waste, yard waste, and non-recyclables. We'll always tell you exactly what it can and can't detect.",
+    a: "We're currently detecting bags of trash in the recycling. We will work with you to determine the most impactful contaminants to look out for.",
   },
   {
-    q: "We already have dashcams on our trucks. How is this different?",
-    a: "Fleet dashcams capture footage. Reframe captures, analyzes, and acts on it. A dashcam gives you video you'd have to manually review when something goes wrong. Our product gives you automatic contamination flagging, GPS-verified route maps, per-address data, and built-in resident outreach tools -- without anyone watching footage. It's purpose-built for waste collection, not adapted from a generic fleet telematics product.",
+    q: "We already have cameras on our trucks. How is this different?",
+    a: "Unlike existing truck cameras, Reframe's computer vision system uses high-end optics and computers to perform automated service audits in real time.",
   },
   {
     q: "Can we use this for enforcement, or just education?",
-    a: "Today the system is best suited for targeted resident education. Done at the address level, that's significantly more effective than city-wide campaigns. We're actively developing bin-level identification to make the data precise enough for formal enforcement. We'll be upfront about what the system supports at each stage.",
+    a: "Up to you. We give you the data and the notices, letting you choose how to act on them. Resident and customer communications can be tailored to suit your intent.",
   },
   {
     q: "Does this work with SB1383 and other state mandates?",
-    a: "Yes. Reframe provides the kind of automated contamination monitoring and documentation that SB1383 and similar state programs require. If you're working toward compliance, we can show you how the dashboard maps to your reporting needs.",
+    a: "Yes. Let us know which program you need to satisfy.",
   },
   {
     q: "How do we get started?",
-    a: "We'll start with a 20-minute walkthrough of the dashboard using live data from current deployments. From there, we'll discuss what a pilot looks like for your fleet: timeline, scope, and pricing. Most pilots launch within weeks of a signed agreement.",
+    a: "Book a demo or drop us a line below!",
   },
 ];
 
@@ -34,14 +34,6 @@ export default function FAQ() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.faq-headline .headline-inner', {
-        y: '110%',
-        duration: 0.9,
-        stagger: 0.1,
-        ease: 'power4.out',
-        scrollTrigger: { trigger: '.faq-headline', start: 'top 85%', once: true },
-      });
-
       gsap.from('.faq-item', {
         opacity: 0,
         y: 16,
@@ -67,22 +59,6 @@ export default function FAQ() {
           <span className="eyebrow eyebrow--caption" style={{ marginBottom: 'var(--space-3)' }}>
             FAQ
           </span>
-          <h2
-            className="faq-headline"
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(32px, 3.2vw, 48px)',
-              fontWeight: 400,
-              color: 'var(--ink)',
-              maxWidth: 560,
-            }}
-          >
-            {['Everything you need', 'to know.'].map((line, i) => (
-              <div key={i} className="headline-mask">
-                <span className="headline-inner">{line}</span>
-              </div>
-            ))}
-          </h2>
         </div>
 
         <div

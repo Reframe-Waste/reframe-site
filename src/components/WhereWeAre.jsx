@@ -3,9 +3,9 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const STATS = [
-  { raw: 72257, display: '72,257', label: 'Service events audited' },
-  { raw: 25690, display: '25,690', label: 'Contaminated services flagged' },
-  { raw: 15000, display: '15,000', label: 'Residential customers covered' },
+  { raw: 173464, display: '173,464', label: 'Automated audits' },
+  { raw: 40928, display: '40,928', label: 'Contaminated services flagged' },
+  { raw: 26315, display: '26,315', label: 'Service addresses' },
 ];
 
 export default function WhereWeAre() {
@@ -166,7 +166,7 @@ export default function WhereWeAre() {
                   color: 'var(--ink)',
                 }}
               >
-                Reframe went live on Queen Creek&apos;s residential recycling program in August 2025. Inspectors no longer drive routes to run audits -- they get a daily contamination digest in their inbox, and resident notices go out automatically.
+                Since launching with the Town of Queen Creek, the town&apos;s inspectors have stopped manual lid flips for recycling carts. Instead, town staff receives contamination reports delivered automatically to their inbox.
               </p>
             </div>
           </div>
@@ -207,7 +207,7 @@ export default function WhereWeAre() {
                   maxWidth: 520,
                 }}
               >
-                Deployment may be reimbursable.
+                Reframe is covered by EPR.
               </h3>
               <p
                 style={{
@@ -215,20 +215,9 @@ export default function WhereWeAre() {
                   fontSize: 'var(--text-base)',
                   color: 'var(--gray-700)',
                   maxWidth: 700,
-                  marginBottom: 'var(--space-1-5)',
                 }}
               >
-                For municipalities, EPR funding programs can reimburse the cost of deploying Reframe. We&apos;ll help you figure out if your program qualifies and how to apply.
-              </p>
-              <p
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: 'var(--text-xs)',
-                  textTransform: 'uppercase',
-                  color: 'var(--caption)',
-                }}
-              >
-                We can help assess eligibility and next steps.
+                That means if you&apos;re in an EPR state, Reframe may be free to implement in your municipality. Reach out and we&apos;ll help you figure out if your program qualifies and how to get funded.
               </p>
             </div>
           </div>
@@ -241,9 +230,8 @@ export default function WhereWeAre() {
 function TimelineBlock() {
   const items = [
     { date: 'Aug 2025', event: 'Launched in Queen Creek, AZ -- 7 units on residential program' },
-    { date: 'Oct 2025', event: 'First 500 electronic notices sent to residents' },
-    { date: 'Nov 2025', event: 'Presented at Maricopa Association of Governments' },
-    { date: 'Early 2026', event: 'Tucson expansion underway -- 2 trucks growing to 45' },
+    { date: 'Oct 2025', event: 'Presented at SWANA' },
+    { date: 'Mar 2026', event: 'Presented at Maricopa Association of Governments' },
   ];
 
   const timelineRef = useRef();

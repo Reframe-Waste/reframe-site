@@ -5,15 +5,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 const FEATURES = [
   {
     kicker: 'Contamination Detection',
-    body: "AI-powered computer vision identifies soft plastic bags in recycling bins as they're lifted and tipped. No driver action required. No manual review of footage.",
+    body: "Reframe's computer vision looks for contamination in each cart as it's tipped into the truck.",
   },
   {
     kicker: 'Route Mapping',
-    body: 'Every collection run is GPS-logged and mapped automatically. Full record of what was collected, when, and where -- without relying on driver reporting.',
+    body: 'Telematics tell you where the hotspots are - where to focus your inspectors or where to focus automatic outreach.',
   },
   {
-    kicker: 'The Dashboard',
-    body: 'See contamination per address across your entire service area. Filter to top offenders. Export address lists and ready-to-send HTML emails for direct resident outreach.',
+    kicker: 'Your Dashboard',
+    body: 'See performance across your entire service area, filter by date, severity, and address. Trigger notices and review trends.',
   },
 ];
 
@@ -97,7 +97,18 @@ export default function OurProduct() {
               overflow: 'hidden',
             }}
           >
-            <ProductUnitGraphic />
+            <img
+              src={`${import.meta.env.BASE_URL}assets/product-zoomed.png`}
+              alt="Reframe unit mounted on a waste collection truck"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center',
+                position: 'absolute',
+                inset: 0,
+              }}
+            />
           </div>
 
           <div style={{
@@ -121,7 +132,7 @@ export default function OurProduct() {
                 maxWidth: 440,
               }}
             >
-              {['A purpose-built device', 'for waste collection trucks.', 'Fully automatic.'].map((line, i) => (
+              {['Purpose-built AI', 'for waste collection.'].map((line, i) => (
                 <div key={i} className="headline-mask">
                   <span className="headline-inner">{line}</span>
                 </div>
@@ -138,7 +149,7 @@ export default function OurProduct() {
                 maxWidth: 440,
               }}
             >
-              Mounts to your truck, runs on its own power, and starts collecting data from the first collection cycle. No integration with the truck. No app for drivers to manage.
+              The Reframe computer vision system mounts to your truck with zero downtime and runs automatically in the background. Zero driver involvement.
             </p>
 
             <div
@@ -159,26 +170,14 @@ export default function OurProduct() {
                 display: 'block',
                 marginBottom: 'var(--space-2)',
               }}>
-                Self-Contained Hardware
+                Built for the Field
               </span>
-              <ul style={{
-                fontFamily: 'var(--font-body)',
-                fontSize: 'var(--text-md)',
-                color: 'var(--caption)',
-                listStylePosition: 'inside',
-                padding: 0,
-                margin: '0 0 var(--space-2)',
-              }}>
-                {['Solar panel', 'Onboard battery', 'Camera', 'GPS', 'Onboard computer', 'Weatherproof enclosure'].map((item) => (
-                  <li key={item} style={{ padding: '3px 0' }}>{item}</li>
-                ))}
-              </ul>
               <p style={{
                 fontFamily: 'var(--font-body)',
                 fontSize: 'var(--text-md)',
                 color: 'var(--caption)',
               }}>
-                Draws no power from the truck. Requires no changes to driver operations.
+                Reframe systems have survived over 1,200 days in the field, enduring 120 degree Arizona summers, hail storms, dust storms, monsoons, tree limbs, and the harsh environment of daily life on a garbage truck.
               </p>
             </div>
           </div>
@@ -244,70 +243,3 @@ export default function OurProduct() {
   );
 }
 
-function ProductUnitGraphic() {
-  return (
-    <div style={{ textAlign: 'center', width: '100%', maxWidth: 300 }}>
-      <svg viewBox="0 0 280 220" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%' }}>
-        {/* Solar panel */}
-        <rect x="40" y="20" width="200" height="50" rx="0" fill="#2a2a2a" stroke="#a78bd9" strokeWidth="1.5"/>
-        <line x1="80" y1="20" x2="80" y2="70" stroke="#444" strokeWidth="1"/>
-        <line x1="120" y1="20" x2="120" y2="70" stroke="#444" strokeWidth="1"/>
-        <line x1="160" y1="20" x2="160" y2="70" stroke="#444" strokeWidth="1"/>
-        <line x1="200" y1="20" x2="200" y2="70" stroke="#444" strokeWidth="1"/>
-        <line x1="40" y1="45" x2="240" y2="45" stroke="#444" strokeWidth="1"/>
-        <text x="140" y="52" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="8" fill="#a78bd9" textTransform="uppercase" letterSpacing="1">Solar Panel</text>
-
-        {/* Main unit body */}
-        <rect x="60" y="80" width="160" height="90" rx="0" fill="#2a2a2a" stroke="#555" strokeWidth="1.5"/>
-
-        {/* Camera lens */}
-        <circle cx="100" cy="125" r="22" fill="#1a1a1a" stroke="#666" strokeWidth="1.5"/>
-        <circle cx="100" cy="125" r="14" fill="#111" stroke="#a78bd9" strokeWidth="1"/>
-        <circle cx="100" cy="125" r="6" fill="#a78bd9" opacity="0.6"/>
-        <circle cx="95" cy="120" r="2" fill="#fff" opacity="0.4"/>
-
-        {/* Status LEDs */}
-        <circle cx="160" cy="110" r="4" fill="#a78bd9"/>
-        <circle cx="172" cy="110" r="4" fill="#2a2a2a" stroke="#444" strokeWidth="1"/>
-        <circle cx="184" cy="110" r="4" fill="#2a2a2a" stroke="#444" strokeWidth="1"/>
-
-        {/* GPS antenna */}
-        <rect x="192" y="88" width="18" height="6" fill="#333" stroke="#555" strokeWidth="1"/>
-        <line x1="201" y1="82" x2="201" y2="88" stroke="#555" strokeWidth="1.5"/>
-
-        {/* Labels */}
-        <text x="155" y="135" fontFamily="'JetBrains Mono', monospace" fontSize="7" fill="#555" letterSpacing="0.5">GPS + COMPUTE</text>
-        <text x="155" y="148" fontFamily="'JetBrains Mono', monospace" fontSize="7" fill="#555" letterSpacing="0.5">4G MODEM</text>
-        <text x="155" y="161" fontFamily="'JetBrains Mono', monospace" fontSize="7" fill="#555" letterSpacing="0.5">BATTERY</text>
-
-        {/* Mount bracket */}
-        <rect x="100" y="170" width="80" height="12" fill="#333" stroke="#555" strokeWidth="1"/>
-        <rect x="115" y="182" width="8" height="16" fill="#333" stroke="#555" strokeWidth="1"/>
-        <rect x="157" y="182" width="8" height="16" fill="#333" stroke="#555" strokeWidth="1"/>
-
-        <text x="140" y="214" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="7" fill="#888" letterSpacing="1">TRUCK MOUNT</text>
-      </svg>
-
-      <div style={{ marginTop: 'var(--space-3)' }}>
-        <span style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: 'var(--text-xs)',
-          textTransform: 'uppercase',
-          color: 'var(--gray-600)',
-          display: 'block',
-          marginBottom: 'var(--space-1)',
-        }}>
-          Reframe Unit v2
-        </span>
-        <span style={{
-          fontFamily: 'var(--font-body)',
-          fontStyle: 'italic',
-          fontSize: 'var(--text-sm)',
-          color: 'var(--gray-700)',
-        }}>
-          Truck-mounted AI camera system
-        </span>
-      </div>
-    </div>
-  );
-}
