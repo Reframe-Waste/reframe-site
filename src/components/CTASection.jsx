@@ -7,7 +7,9 @@ export default function CTASection() {
   const bgRef = useRef();
   const formRef = useRef();
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '', org: '', fleet: '', message: '' });
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
+  const [form, setForm] = useState({ name: '', email: '', org: '', fleetSize: '', message: '' });
 
   const update = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
@@ -182,8 +184,8 @@ export default function CTASection() {
               className="cta-input"
               type="text"
               placeholder="e.g. 24"
-              value={form.fleet}
-              onChange={update('fleet')}
+              value={form.fleetSize}
+              onChange={update('fleetSize')}
               style={inputStyle}
             />
           </div>
@@ -201,12 +203,44 @@ export default function CTASection() {
           </div>
 
           <button
-            onClick={() => setSubmitted(true)}
+            onClick={async () => {
+              if (!form.email) {
+                setError('Please enter your email address.');
+                return;
+              }
+              setError('');
+              setSubmitting(true);
+              try {
+                const res = await fetch('https://app.reframewaste.com/api/contact', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(form),
+                });
+                if (!res.ok) throw new Error('Request failed');
+                setSubmitted(true);
+              } catch {
+                setError('Something went wrong. Please try again or email us at hello@reframewaste.com.');
+              } finally {
+                setSubmitting(false);
+              }
+            }}
+            disabled={submitting}
             className="btn btn--dark"
-            style={{ width: '100%', textAlign: 'center', fontSize: 'var(--text-md)' }}
+            style={{ width: '100%', textAlign: 'center', fontSize: 'var(--text-md)', opacity: submitting ? 0.6 : 1 }}
           >
-            Schedule a Demo &rarr;
+            {submitting ? 'Submitting...' : 'Schedule a Demo \u2192'}
           </button>
+
+          {error && (
+            <p style={{
+              fontFamily: 'var(--font-ui)',
+              fontSize: 'var(--text-sm)',
+              color: '#b91c1c',
+              marginTop: 'var(--space-2)',
+            }}>
+              {error}
+            </p>
+          )}
 
           <p style={{
             fontFamily: 'var(--font-ui)',
