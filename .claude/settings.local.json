@@ -13,5 +13,9 @@
       "PowerShell(Invoke-WebRequest -Uri \"https://reframe-waste.github.io/reframe-site/\" -UseBasicParsing | Select-Object -ExpandProperty Content)",
       "PowerShell(Start-Sleep -Seconds 5; & \"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" run list --repo Reframe-Waste/reframe-site --limit 3)"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "google-drive"
+  ],
+  "enableAllProjectMcpServers": true
 }

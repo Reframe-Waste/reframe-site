@@ -54,7 +54,7 @@ export default function HowItWorks({ onNav }) {
       className="section-border"
     >
       <div style={{ maxWidth: 'var(--max-width)', margin: '0 auto' }}>
-        <div style={{ padding: 'var(--space-14) var(--page-padding) var(--space-6)' }}>
+        <div style={{ padding: 'var(--section-pad-y) var(--page-padding) 0' }}>
           <span className="eyebrow eyebrow--caption" style={{ marginBottom: 'var(--space-3)' }}>
             How It Works
           </span>
@@ -66,7 +66,7 @@ export default function HowItWorks({ onNav }) {
             display: 'grid',
             gridTemplateColumns: '1fr',
             rowGap: 4,
-            paddingTop: 'var(--space-7)',
+            paddingTop: 'var(--space-4)',
             paddingBottom: 'var(--space-7)',
           }}
         >

@@ -165,7 +165,7 @@ export default function CTASection() {
           </div>
 
           <div style={{ marginBottom: 'var(--space-3)' }}>
-            <label style={labelStyle}>Organisation</label>
+            <label style={labelStyle}>Organization</label>
             <input
               className="cta-input"
               type="text"
@@ -177,7 +177,7 @@ export default function CTASection() {
           </div>
 
           <div style={{ marginBottom: 'var(--space-3)' }}>
-            <label style={labelStyle}>Fleet Size (vehicles)</label>
+            <label style={labelStyle}>Fleet Size (optional)</label>
             <input
               className="cta-input"
               type="text"

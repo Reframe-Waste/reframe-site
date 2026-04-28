@@ -85,12 +85,33 @@ export default function WhoItsFor() {
     >
       <div style={{ maxWidth: 'var(--max-width)', margin: '0 auto' }}>
 
+        {/* Header */}
+        <div style={{ padding: 'var(--section-pad-y) var(--page-padding) 0' }}>
+          <span className="eyebrow eyebrow--caption" style={{ marginBottom: 'var(--space-3)' }}>
+            Who It's For
+          </span>
+          <h2
+            className="wif-headline"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(32px, 3.2vw, 48px)',
+              fontWeight: 400,
+              color: 'var(--ink)',
+              maxWidth: 560,
+              marginBottom: 0,
+            }}
+          >
+            For municipalities and haulers.
+          </h2>
+        </div>
+
         {/* Tabs */}
         <div
           ref={ribbonRef}
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
+            marginTop: 'var(--space-5)',
           }}
         >
           {Object.entries(AUDIENCES).map(([key, cfg], i) => {
