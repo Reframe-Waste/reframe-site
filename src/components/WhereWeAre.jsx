@@ -166,7 +166,18 @@ export default function WhereWeAre() {
                   color: 'var(--ink)',
                 }}
               >
-                Since launching with the Town of Queen Creek, the town&apos;s inspectors have stopped manual lid flips for recycling carts. Instead, town staff receives contamination reports delivered automatically to their inbox. Reframe is now available for municipalities and haulers across all 50 states.
+                Since launching with the Town of Queen Creek, the town&apos;s inspectors have stopped manual lid flips for recycling carts. Instead, town staff receives contamination reports delivered automatically to their inbox.
+              </p>
+              <p
+                className="where-body-text"
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: 'var(--text-base)',
+                  color: 'var(--ink)',
+                  marginTop: 'var(--space-3)',
+                }}
+              >
+                Reframe is now available for municipalities and haulers across all 50 states.
               </p>
             </div>
           </div>
