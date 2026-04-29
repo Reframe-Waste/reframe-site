@@ -150,7 +150,7 @@ export default function WhereWeAre() {
                 maxWidth: 440,
               }}
             >
-              {['Live in Queen Creek.', 'Expanding in Tucson.'].map((line, i) => (
+              {['Live in Arizona.', 'Coming to your state.'].map((line, i) => (
                 <div key={i} className="headline-mask">
                   <span className="headline-inner">{line}</span>
                 </div>
@@ -166,7 +166,7 @@ export default function WhereWeAre() {
                   color: 'var(--ink)',
                 }}
               >
-                Since launching with the Town of Queen Creek, the town&apos;s inspectors have stopped manual lid flips for recycling carts. Instead, town staff receives contamination reports delivered automatically to their inbox.
+                Since launching with the Town of Queen Creek, the town&apos;s inspectors have stopped manual lid flips for recycling carts. Instead, town staff receives contamination reports delivered automatically to their inbox. Reframe is now available for municipalities and haulers across all 50 states.
               </p>
             </div>
           </div>
