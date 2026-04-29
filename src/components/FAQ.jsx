@@ -120,6 +120,7 @@ function FAQItem({ q, a, isLast }) {
           border: 'none',
           cursor: 'pointer',
           textAlign: 'left',
+          color: 'var(--ink)',
         }}
         onMouseEnter={e => e.currentTarget.style.color = 'var(--purple)'}
         onMouseLeave={e => e.currentTarget.style.color = 'var(--ink)'}
