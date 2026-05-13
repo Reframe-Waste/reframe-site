@@ -100,6 +100,7 @@ export default function Navigation({ onNav, activeSection }) {
             onClick={() => handleNav('demo')}
             className="btn btn--dark nav-demo-desktop"
             style={{ padding: 'var(--space-1) var(--space-3)', fontSize: 'var(--text-sm)' }}
+            data-umami-event="nav-get-a-demo"
           >
             Get a Demo
           </button>
@@ -163,6 +164,7 @@ export default function Navigation({ onNav, activeSection }) {
               onClick={() => handleNav('demo')}
               className="btn btn--dark"
               style={{ width: '100%', textAlign: 'center' }}
+              data-umami-event="mobile-nav-get-a-demo"
             >
               Get a Demo
             </button>

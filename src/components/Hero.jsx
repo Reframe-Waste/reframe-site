@@ -82,7 +82,7 @@ export default function Hero({ onNav }) {
         ref={ctasRef}
         style={{ display: 'flex', gap: 'var(--space-2)', alignItems: 'center', justifyContent: 'center' }}
       >
-        <button onClick={() => onNav('demo')} className="btn btn--dark">
+        <button onClick={() => onNav('demo')} className="btn btn--dark" data-umami-event="hero-get-a-demo">
           Get a Demo
         </button>
       </div>
