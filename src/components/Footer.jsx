@@ -136,6 +136,7 @@ export default function Footer() {
           </span>
           <a
             href="mailto:hello@reframewaste.com"
+            data-umami-event="footer-email-click"
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: 'var(--text-xs)',

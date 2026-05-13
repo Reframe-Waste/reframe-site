@@ -227,6 +227,7 @@ export default function CTASection() {
             disabled={submitting}
             className="btn btn--dark"
             style={{ width: '100%', textAlign: 'center', fontSize: 'var(--text-md)', opacity: submitting ? 0.6 : 1 }}
+            data-umami-event="form-schedule-a-demo"
           >
             {submitting ? 'Submitting...' : 'Schedule a Demo \u2192'}
           </button>
